@@ -1,0 +1,238 @@
+  1	ui.html.fl_visualizer_gui	FL Visualizer · GUI 设计预览 v2	index.html:5
+  2	ui.html.t49063	导入工程	index.html:25
+  3	ui.html.fl_studio	选择 FL Studio 工程文件与对应的混音音频。两者都导入后才能进入编辑。	index.html:26
+  4	ui.html.flp	FLP 工程	index.html:31
+  5	ui.html.t39425	点击选择或拖入	index.html:32,index.html:37
+  6	ui.html.t73843	混音音频	index.html:36,app.js:431,app.js:441
+  7	ui.html.t10660	等待导入…	index.html:47,app.js:481
+  8	ui.html.t7678	使用示例工程	index.html:49
+  9	ui.html.t85138	进入编辑器	index.html:50,app.js:471
+ 10	ui.html.t5235	画布	index.html:71,index.html:326,index.html:368
+ 11	ui.html.t75908	帧率	index.html:78,index.html:369
+ 12	ui.html.t23764	资源	index.html:90
+ 13	ui.html.t51702	主题 · 模板 · 组件	index.html:90
+ 14	ui.html.t49237	主题库	index.html:93
+ 15	ui.html.t69521	模板库	index.html:96
+ 16	ui.html.t54313	组件库	index.html:99
+ 17	ui.html.t1158	0 个组件	index.html:109
+ 18	ui.attr.t88700	适应窗口	index.html:114,app.js:2397
+ 19	ui.html.t70621	画布为空	index.html:124
+ 20	ui.html.t97090	从左侧拖拽组件到这里，或套用模板库中的布局	index.html:125
+ 21	ui.html.t48944	静帧预览 · 第	index.html:127
+ 22	ui.html.t17623	秒	index.html:128
+ 23	ui.html.t45586	属性	index.html:140
+ 24	ui.html.t57332	未选中	index.html:140,app.js:1716
+ 25	ui.html.t78558	在画布中选中一个组件	index.html:142
+ 26	ui.html.t74056	以编辑它的位置与尺寸	index.html:143
+ 27	ui.html.t73236	文字	index.html:149,app.js:64
+ 28	ui.html.t88507	可用变量：	index.html:156
+ 29	ui.html.t85225	字体	index.html:162,index.html:165,app.js:1898
+ 30	ui.html.t68979	角色	index.html:173,app.js:1898,app.js:1909
+ 31	ui.attr.t64154	决定用主题的哪套字体；「跟随主题」时生效	index.html:174
+ 32	ui.html.display	标题（display）	index.html:178
+ 33	ui.html.body	正文（body）	index.html:179
+ 34	ui.html.mono	等宽（mono）	index.html:180
+ 35	ui.html.t52500	字号	index.html:184,app.js:1891,app.js:1898
+ 36	ui.html.t96420	字重	index.html:189,app.js:1898,app.js:1911
+ 37	ui.html.t59465	跟随主题	index.html:194
+ 38	ui.html.t51744	细体 300	index.html:195
+ 39	ui.html.t52054	常规 400	index.html:196
+ 40	ui.html.t26510	中粗 600	index.html:197
+ 41	ui.html.t60481	粗体 700	index.html:198
+ 42	ui.html.t4800	特粗 900	index.html:199
+ 43	ui.html.t39729	对齐	index.html:203,app.js:1924
+ 44	ui.html.t43091	左	index.html:205
+ 45	ui.html.t46664	中	index.html:206
+ 46	ui.html.t41546	右	index.html:207
+ 47	ui.html.t34185	行距	index.html:211,app.js:1898,app.js:1912
+ 48	ui.html.t34182	字距	index.html:215,app.js:1898,app.js:1913
+ 49	ui.html.t95307	颜色	index.html:220,app.js:1914
+ 50	ui.html.ink	主色（ink）	index.html:225
+ 51	ui.html.inkmid	次色（inkMid）	index.html:226
+ 52	ui.html.inkfaint	弱色（inkFaint）	index.html:227
+ 53	ui.html.accent	强调（accent）	index.html:228
+ 54	ui.html.accent2	强调二（accent2）	index.html:229
+ 55	ui.html.t18668	旋转	index.html:233,app.js:1899,app.js:1933
+ 56	ui.html.t38493	全大写	index.html:243
+ 57	ui.html.t97691	倾斜	index.html:246,app.js:1898,app.js:1916
+ 58	ui.html.t97570	底板	index.html:249
+ 59	ui.attr.t36481	开启后框由你决定，文本在框内换行；关闭则框自适应文本	index.html:252
+ 60	ui.html.t24027	固定换行	index.html:253
+ 61	ui.html.t22276	几何	index.html:259
+ 62	ui.html.t13688	宽	index.html:263
+ 63	ui.html.t41721	高	index.html:264
+ 64	ui.html.t53783	比例	index.html:265
+ 65	ui.html.t3673	外观	index.html:268
+ 66	ui.html.t32714	柔化	index.html:271
+ 67	ui.html.t80094	0 = 硬边卡片 · 越大越融入画布	index.html:277
+ 68	ui.attr.t30842	关闭后组件内自带的数值、刻度、单位等文字会被隐藏，画面更干净	index.html:282
+ 69	ui.html.t32269	隐藏组件内的文字	index.html:283
+ 70	ui.html.t98102	窗口	index.html:289
+ 71	ui.html.t67400	2 小节	index.html:292
+ 72	ui.html.t78777	越大看得越远 · 越小越聚焦	index.html:295
+ 73	ui.html.t77360	层序	index.html:300
+ 74	ui.html.t74968	层级	index.html:302
+ 75	ui.html.t56692	上移一层	index.html:304
+ 76	ui.html.t20421	下移一层	index.html:305
+ 77	ui.html.t82278	可见性	index.html:309
+ 78	ui.html.t59115	隐藏	index.html:312,app.js:2422
+ 79	ui.html.t31329	删除	index.html:313,app.js:2431
+ 80	ui.html.t61503	图层	index.html:318
+ 81	ui.html.t93564	组件	index.html:327
+ 82	ui.html.t12358	主题	index.html:328
+ 83	ui.html.t54203	静帧	index.html:329
+ 84	ui.html.t34191	保存布局	index.html:332
+ 85	ui.html.t59036	读取布局	index.html:333
+ 86	ui.html.t3556	导出视频	index.html:334,index.html:346
+ 87	ui.html.t47351	渲染在本地进行，可随时取消。参数留空则用已验证的最优默认值。	index.html:347
+ 88	ui.html.t45324	输出路径	index.html:350
+ 89	ui.attr.mp4	输出 mp4 的完整路径	index.html:352
+ 90	ui.html.t69891	选择…	index.html:353
+ 91	ui.html.t13692	起点	index.html:356
+ 92	ui.html.t66889	秒 （从工程的该时刻开始）	index.html:359
+ 93	ui.html.t28911	时长	index.html:362,app.js:577
+ 94	ui.html.t55091	秒）	index.html:365
+ 95	ui.html.t62136	秒 （工程全长	index.html:365
+ 96	ui.html.fps	fps （由顶栏决定）	index.html:370
+ 97	ui.html.t46392	码率	index.html:372
+ 98	ui.attr.crf	留空 = 质量优先（CRF 18）	index.html:374
+ 99	ui.html.t3612	如 12M	index.html:376
+100	ui.html.t20361	编码预设	index.html:379
+101	ui.html.ultrafast	ultrafast（最快，画质略低）	index.html:382
+102	ui.html.medium	medium（默认，画质/速度均衡）	index.html:386
+103	ui.html.veryslow	veryslow（最慢，画质最好）	index.html:388
+104	ui.html.t62537	并行度	index.html:392
+105	ui.attr.t19703	自动	index.html:395
+106	ui.html.t56189	留空 = 自动（实测最优 4 路）	index.html:396
+107	ui.html.t29372	音轨	index.html:399
+108	ui.html.t14758	混入音频	index.html:401
+109	ui.html.t94098	准备	index.html:409
+110	ui.html.t69475	取消	index.html:420
+111	ui.html.t47325	关闭	index.html:422
+112	ui.html.t58511	开始导出	index.html:423,app.js:2220,app.js:2322
+113	ui.js.t18200	中性灰阶 · 未套用主题	app.js:53
+114	ui.js.t11644	内容	app.js:63,app.js:1898,app.js:1907
+115	ui.js.t54852	钢琴卷帘	app.js:65
+116	ui.js.t31428	音级轮	app.js:66
+117	ui.js.t28502	结构	app.js:68
+118	ui.js.t89960	主时间轴	app.js:69
+119	ui.js.t81655	步进器	app.js:70
+120	ui.js.t71570	音频	app.js:72
+121	ui.js.t61393	频谱	app.js:73
+122	ui.js.t91430	波形	app.js:74
+123	ui.js.t91681	声场	app.js:75
+124	ui.js.t68098	响度	app.js:76
+125	ui.js.t64522	明亮度	app.js:77
+126	ui.js.t95572	瞬态	app.js:78
+127	ui.js.t9989	信息	app.js:80
+128	ui.js.t71775	走带读数	app.js:81
+129	ui.js.t11560	临时多选	app.js:112
+130	ui.js.t60229	选中	app.js:118
+131	ui.js.t19691	没有可撤销的操作	app.js:215
+132	ui.js.t48421	已撤销	app.js:219
+133	ui.js.t47100	没有可重做的操作	app.js:224
+134	ui.js.t51745	已重做	app.js:228
+135	ui.js.t68862	已复制	app.js:246,app.js:302
+136	ui.js.t86525	个组件	app.js:246,app.js:271,app.js:302
+137	ui.js.t75483	剪贴板为空	app.js:251
+138	ui.js.t92805	已粘贴	app.js:271
+139	ui.js.t34326	已剪切	app.js:278
+140	ui.js.t80892	已删除	app.js:313
+141	ui.js.t3180	已置顶	app.js:338,app.js:1991
+142	ui.js.t48291	已置底	app.js:349
+143	ui.js.t96394	运行中	app.js:385
+144	ui.js.t81412	选择失败：	app.js:394
+145	ui.js.flp	.flp · 导入完成	app.js:411,app.js:437
+146	ui.js.t99281	混音 ·	app.js:429,app.js:440
+147	ui.js.t1129	已载入示例工程	app.js:443
+148	ui.js.t8973	解析并进入编辑器	app.js:471
+149	ui.js.t80941	工程已就绪	app.js:473
+150	ui.js.t78818	可以开始解析	app.js:474
+151	ui.js.t60174	还需选择音频	app.js:475
+152	ui.js.flp_2	还需选择 FLP	app.js:476
+153	ui.js.t89884	等待选择文件…	app.js:476
+154	ui.js.t68723	可以进入编辑器	app.js:480
+155	ui.js.flp_3	还需导入 FLP	app.js:481
+156	ui.js.t31444	还需导入音频	app.js:481
+157	ui.js.t13309	导入失败：	app.js:506,app.js:516,app.js:517
+158	ui.js.t152	未知	app.js:506
+159	ui.js.t7603	完成	app.js:509,app.js:2302,app.js:2304
+160	ui.js.t9038	解析完成，正在载入…	app.js:510
+161	ui.js.t87135	导入出错：	app.js:521
+162	ui.js.t16404	纳入	app.js:537
+163	ui.js.t56867	音频命中	app.js:539
+164	ui.js.t35732	按关键词	app.js:551,app.js:551
+165	ui.js.t85342	通道名	app.js:551
+166	ui.js.t15166	按音高	app.js:552,app.js:552
+167	ui.js.t79765	音高	app.js:552
+168	ui.js.t52561	按节奏	app.js:553,app.js:553
+169	ui.js.t90330	节奏	app.js:553
+170	ui.js.t75224	按后缀	app.js:554,app.js:554
+171	ui.js.t67360	当前工程：<b>	app.js:574
+172	ui.js.br	<br>画布中的组件为<b>真实渲染</b> —— 所见即最终视频的画面。	app.js:578
+173	ui.js.t79667	渲染序号	app.js:616,app.js:619
+174	ui.js.t31325	件	app.js:729
+175	ui.js.t63412	已清空画布	app.js:817
+176	ui.js.t5125	已套用模板：	app.js:842
+177	ui.js.t39202	已添加：	app.js:1130
+178	ui.js.t90518	添加	app.js:1151
+179	ui.js.t93462	可用：	app.js:1205
+180	ui.js.uid	窗口 uid 无效：	app.js:1205
+181	ui.js.t13396	已选中	app.js:1489
+182	ui.js.t44742	已全选	app.js:1533,app.js:2387
+183	ui.js.t10854	主时间轴跨度	app.js:1704
+184	ui.js.t22621	步进器滚动窗	app.js:1705
+185	ui.js.t56768	卷帘滚动窗	app.js:1706
+186	ui.js.t28892	频谱滚动窗	app.js:1707
+187	ui.js.t24671	波形滚动窗	app.js:1708
+188	ui.js.t36198	关闭后组件内自带的数值、刻度、单位等文字会被隐藏	app.js:1739
+189	ui.js.t88122	文字组件没有内嵌文字	app.js:1740
+190	ui.js.t13245	小节	app.js:1752,app.js:1948
+191	ui.js.t84099	框自适应文本；开启「固定换行」后可手动调整	app.js:1873
+192	ui.js.t26360	大写	app.js:1898,app.js:1915
+193	ui.js.t29269	自动换行	app.js:1899,app.js:1918
+194	ui.js.t64453	背景	app.js:1917
+195	ui.js.t3772	已显示组件内文字	app.js:1970
+196	ui.js.t77622	已隐藏组件内文字	app.js:1970
+197	ui.js.t11740	已在最上层	app.js:1992
+198	ui.js.t15600	已下移	app.js:1998
+199	ui.js.t7948	已在最下层	app.js:1999
+200	ui.js.t15113	已显示	app.js:2005
+201	ui.js.t51517	已隐藏	app.js:2005,app.js:2429
+202	ui.js.div	画布中还没有组件</div>	app.js:2042
+203	ui.js.t31767	画布：	app.js:2074
+204	ui.js.t86767	帧率：	app.js:2082
+205	ui.js.f12	离线原型：布局已输出到控制台（F12 查看）	app.js:2159
+206	ui.js.t28513	保存为（不含扩展名）	app.js:2162
+207	ui.js.t65570	已保存：	app.js:2166
+208	ui.js.t64699	保存失败：	app.js:2167
+209	ui.js.python_app_server_py	离线原型不支持读取，请用 python app_server.py 启动	app.js:2172
+210	ui.js.t3902	还没有保存过布局	app.js:2177
+211	ui.js.t34217	读取哪个布局？\n\n	app.js:2178
+212	ui.js.t9133	读取失败	app.js:2185
+213	ui.js.t18827	已读取布局：	app.js:2188
+214	ui.js.t10035	画布为空，请先添加组件	app.js:2191
+215	ui.js.html	当前是离线原型（直接打开 HTML 文件），没有本地服务，无法真正导出。	app.js:2226
+216	ui.js.python_app_server_py_2	请用 python app_server.py 启动后再试。	app.js:2227
+217	ui.js.t51538	正在取消…	app.js:2247
+218	ui.js.t19401	时长必须大于 0	app.js:2254
+219	ui.js.t87987	导出中…	app.js:2284
+220	ui.js.t75267	服务未受理	app.js:2291
+221	ui.js.t9011	用时	app.js:2307
+222	ui.js.t68672	已导出：<b>	app.js:2309
+223	ui.js.download_style_color	" download style="color:var(--acc)">下载</a>	app.js:2311
+224	ui.js.t46641	导出完成	app.js:2312
+225	ui.js.t13842	任务	app.js:2314
+226	ui.js.t25731	导出失败：	app.js:2318
+227	ui.js.t87723	导出失败	app.js:2319
+228	ui.js.t47281	粘贴	app.js:2384,app.js:2417
+229	ui.js.t43399	全选	app.js:2385
+230	ui.js.t606	撤销	app.js:2390
+231	ui.js.t88582	重做	app.js:2393
+232	ui.js.t26025	实际大小	app.js:2398
+233	ui.js.t92136	个）	app.js:2411
+234	ui.js.t176	复制	app.js:2414
+235	ui.js.t77732	剪切	app.js:2415
+236	ui.js.t87774	原地复制	app.js:2416
+237	ui.js.t39305	置顶	app.js:2419
+238	ui.js.t48142	置底	app.js:2420

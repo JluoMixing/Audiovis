@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>组件库 · 全主题</title>
+<style>
+/*__STYLE__*/
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="title">组件库</h1>
+  <div class="sub">
+    每个组件独立渲染，尺寸为<b>默认值</b>（预览台可缩放）。<br>
+    全部组件共用同一时间基准与同一份分析数据。
+  </div>
+  <div class="bar">
+    <label>时间
+      <input id="scrub" type="range" min="0" max="1000" value="180" step="1">
+      <span class="val" id="clock">0:00.0</span>
+    </label>
+    <label><input id="play" type="checkbox"> 播放</label>
+    <label>速度
+      <input id="rate" type="range" min="1" max="30" value="6" step="1" style="width:96px">
+      <span class="val" id="rateVal">6×</span>
+    </label>
+    <label>窗口
+      <input id="winbars" type="range" min="1" max="8" value="2" step="1" style="width:88px">
+      <span class="val" id="winVal">2 小节</span>
+    </label>
+    <label>主轴窗宽
+      <input id="mainwin" type="range" min="4" max="64" value="26" step="2" style="width:100px">
+      <span class="val" id="mainWinVal">26 小节</span>
+    </label>
+    <label>消散
+      <input id="decay" type="range" min="12" max="60" value="30" step="2" style="width:96px">
+      <span class="val" id="decayVal">3.0 拍</span>
+      <span class="val" id="decaySec" style="color:#7fbf9f"></span>
+    </label>
+    <button id="btnNow">跳到 48s</button>
+  </div>
+</header>
+
+<div class="wrap" id="wrap"></div>
+
+<script>
+/* ============================================================
+   数据注入（由构建脚本填充）
+   ============================================================ */
+const DATA = __DATA__;
+const DIRECTIONS = __DIRECTIONS__;
+
+/* 主题通过 window 传递：core/theme.js 在模块区读取，
+   避免 const 声明顺序问题，并支持运行时切换主题。 */
+window.__THEME__ = DIRECTIONS.directions[__THEMEKEY__];
+window.__THEME_KEY__ = __THEMEKEY__;
+
+/*__SCRIPT__*/
+</script>
+</body>
+</html>

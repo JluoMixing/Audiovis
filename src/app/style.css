@@ -1,0 +1,110 @@
+/* ============================================================
+   预览台样式
+   ------------------------------------------------------------
+   仅用于预览台外壳（header / 控制条 / 组件卡片）。
+   组件内部的视觉全部由主题令牌决定，不使用这里的样式。
+   ============================================================ */
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #0e0e0e;
+  color: #e9e9e9;
+  font-family: "Inter", "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- 顶栏 ---- */
+header {
+  position: sticky; top: 0; z-index: 10;
+  background: #0a0a0a;
+  border-bottom: 1px solid #262626;
+  padding: 16px 30px;
+}
+header h1 { margin: 0 0 7px; font-size: 15px; font-weight: 600; }
+.sub {
+  font-size: 12.5px; color: #8f8f8f; line-height: 1.7; max-width: 1340px;
+}
+.sub b { color: #e9e9e9; }
+
+.bar {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  margin-top: 12px;
+}
+.bar label {
+  font-size: 12px; color: #9a9a9a;
+  display: flex; align-items: center; gap: 7px;
+}
+.bar input[type=range] { width: 240px; accent-color: #4da3ff; }
+.bar .val {
+  font-family: Consolas, monospace; font-size: 12px; min-width: 62px;
+}
+.bar button {
+  background: #1e1e1e; color: #ddd; border: 1px solid #333;
+  border-radius: 3px; padding: 5px 11px; font-size: 12px; cursor: pointer;
+}
+.bar button:hover { background: #282828; }
+
+/* ---- 内容区 ---- */
+.wrap {
+  padding: 26px 30px 70px;
+  display: flex; flex-direction: column; gap: 42px;
+}
+
+.grp {
+  font-size: 12px; color: #7a7a7a; letter-spacing: 2px;
+  font-family: Consolas, monospace;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #262626;
+  margin-bottom: 2px;
+}
+
+/* ---- 组件卡片 ---- */
+.cHead { display: flex; align-items: baseline; gap: 12px; margin-bottom: 5px; }
+.cName { font-size: 17px; font-weight: 600; }
+.cId {
+  font-size: 11px; color: #8a8a8a;
+  font-family: Consolas, monospace; letter-spacing: 1.4px;
+}
+.cSize {
+  font-size: 11px; color: #6a6a6a;
+  font-family: Consolas, monospace; margin-left: auto;
+}
+.cDesc {
+  font-size: 12.5px; color: #9a9a9a; line-height: 1.7; max-width: 1340px;
+}
+.cDesc b { color: #dcdcdc; }
+
+canvas {
+  display: block;
+  border: 1px solid #2c2c2c;
+  border-radius: 3px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, .55);
+  margin-top: 10px;
+}
+
+/* ---- 多主题总览模式 ---- */
+.themeSection { margin-top: 8px; }
+.themeTitle {
+  font-size: 15px; font-weight: 600; margin: 0 0 4px;
+  padding-top: 18px;
+}
+.themeTitle em {
+  font-style: normal; font-size: 11px; color: #8f8f8f;
+  font-family: Consolas, monospace; letter-spacing: 2px; margin-left: 10px;
+}
+.themeNote {
+  font-size: 12px; color: #8f8f8f; line-height: 1.7;
+  margin-bottom: 14px; max-width: 1340px;
+}
+.grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;
+}
+@media (max-width: 1500px) { .grid { grid-template-columns: 1fr; } }
+.gridCell canvas { margin-top: 0; }
+.gridLabel {
+  font-size: 11px; color: #8a8a8a; font-family: Consolas, monospace;
+  letter-spacing: 1.2px; margin-bottom: 6px;
+}

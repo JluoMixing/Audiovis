@@ -1,0 +1,65 @@
+{
+  "name": "default-dark",
+  "description": "默认深色主题。所有视觉参数集中于此，便于快速迭代；预览台不硬编码任何样式。",
+
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "background": "#0b0f14"
+  },
+
+  "layout": {
+    "margin": 36,
+    "gap": 24,
+    "main_width_ratio": 0.698,
+    "aux_rows": 3,
+    "aux_gap": 20
+  },
+
+  "typography": {
+    "family": "\"Segoe UI\", \"Microsoft YaHei\", system-ui, sans-serif",
+    "mono": "\"Cascadia Mono\", Consolas, \"Courier New\", monospace",
+    "panel_title": 15,
+    "label": 12,
+    "small": 11,
+    "clock": 34,
+    "track_label": 12
+  },
+
+  "colors": {
+    "panel_bg": "#121820",
+    "panel_border": "#1f2a36",
+    "panel_header": "#0f151c",
+    "text": "#dfe8f2",
+    "text_dim": "#7c8b9c",
+    "text_faint": "#4d5a68",
+    "accent": "#4da3ff",
+    "pattern": "#3fae7d",
+    "pattern_edge": "#5fd39d",
+    "audio": "#d98a3c",
+    "audio_edge": "#f0a95c",
+    "grid_major": "#233040",
+    "grid_minor": "#18222d",
+    "playhead": "#ff5f6d",
+    "wave": "#4da3ff",
+    "wave_dim": "#1d3a5c",
+    "spectrum": "#7c5cff",
+    "spectrum_peak": "#ff5f6d",
+    "event": "#3fae7d"
+  },
+
+  "timeline": {
+    "window_bars": 32,
+    "row_height": 58,
+    "row_gap": 6,
+    "clip_radius": 3,
+    "show_ruler": true,
+    "max_tracks": 14
+  },
+
+  "aux": {
+    "waveform": { "points": 2400, "height_ratio": 1.0 },
+    "spectrum": { "bins": 56, "floor_db": -78, "ceil_db": -6, "fft": 4096 },
+    "events": { "buckets": 128 }
+  }
+}

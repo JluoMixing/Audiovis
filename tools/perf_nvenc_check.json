@@ -1,0 +1,37 @@
+{
+ "nvidia_smi": "C:\\Windows\\System32\\nvidia-smi.exe",
+ "结果": {
+  "libx264_medium": {
+   "可用": true,
+   "每帧ms": 28.94,
+   "KB": 153.8
+  },
+  "h264_nvenc_p4": {
+   "可用": false,
+   "错误": "[Errno 32] Broken pipe"
+  },
+  "h264_nvenc_p1": {
+   "可用": false,
+   "错误": "[Errno 32] Broken pipe"
+  },
+  "hevc_nvenc_p4": {
+   "可用": false,
+   "错误": "[Errno 32] Broken pipe"
+  },
+  "h264_amf": {
+   "可用": true,
+   "每帧ms": 10.35,
+   "KB": 101.2
+  },
+  "hevc_amf": {
+   "可用": true,
+   "每帧ms": 10.94,
+   "KB": 163.6
+  }
+ },
+ "可用": [
+  "libx264_medium",
+  "h264_amf",
+  "hevc_amf"
+ ]
+}

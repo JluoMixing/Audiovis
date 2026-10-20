@@ -1,0 +1,508 @@
+{
+ "playlist": {
+  "w": 1180,
+  "h": 600,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 3416798568,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 1484025379,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 2442728014,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 85852423,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 3299881538,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 1470795179,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 970575460,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 1542770361,
+    "err": null
+   }
+  ]
+ },
+ "stepper": {
+  "w": 960,
+  "h": 360,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 1232193883,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 1519666060,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 4042877363,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 2194946344,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 571662145,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 1669627066,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 4280020384,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 1036263976,
+    "err": null
+   }
+  ]
+ },
+ "pianoroll": {
+  "w": 900,
+  "h": 300,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 3176312911,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 1980278778,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 1672153356,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 933230186,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 3297411952,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 3956383279,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 4210638341,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 3934228554,
+    "err": null
+   }
+  ]
+ },
+ "pitchwheel": {
+  "w": 360,
+  "h": 360,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 2986546875,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 2032047455,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 4109717811,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 1527678359,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 1580720659,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 4081178883,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 1580720659,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 1527678359,
+    "err": null
+   }
+  ]
+ },
+ "spectrum": {
+  "w": 640,
+  "h": 200,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 2201856955,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 205679635,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 975970279,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 2184657858,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 2633858472,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 1955920182,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 3549795505,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 366030221,
+    "err": null
+   }
+  ]
+ },
+ "waveform": {
+  "w": 640,
+  "h": 160,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 925788984,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 3979701304,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 2815194309,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 4097317241,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 1486334482,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 1168079986,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 862778947,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 3755644308,
+    "err": null
+   }
+  ]
+ },
+ "vectorscope": {
+  "w": 300,
+  "h": 300,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 421417870,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 47912426,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 3493401896,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 1576284520,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 126810997,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 2462399321,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 55373707,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 4133147373,
+    "err": null
+   }
+  ]
+ },
+ "loudness": {
+  "w": 420,
+  "h": 300,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 1567709140,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 3682120883,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 224863608,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 2412462411,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 3674670430,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 2743523,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 2046420202,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 3471653143,
+    "err": null
+   }
+  ]
+ },
+ "brightness": {
+  "w": 420,
+  "h": 300,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 1431762028,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 1194386235,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 154403732,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 3044565674,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 1914016140,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 771607408,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 2393627191,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 1555812264,
+    "err": null
+   }
+  ]
+ },
+ "transient": {
+  "w": 420,
+  "h": 300,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 1801171825,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 3343711367,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 782012865,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 3538849588,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 929547155,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 2300738674,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 3702022035,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 3622437146,
+    "err": null
+   }
+  ]
+ },
+ "transport": {
+  "w": 320,
+  "h": 170,
+  "samples": [
+   {
+    "sec": 5,
+    "sum": 2173256115,
+    "err": null
+   },
+   {
+    "sec": 30,
+    "sum": 3554786347,
+    "err": null
+   },
+   {
+    "sec": 48,
+    "sum": 42015640,
+    "err": null
+   },
+   {
+    "sec": 48.37,
+    "sum": 418822854,
+    "err": null
+   },
+   {
+    "sec": 90,
+    "sum": 3490531789,
+    "err": null
+   },
+   {
+    "sec": 150,
+    "sum": 1336048155,
+    "err": null
+   },
+   {
+    "sec": 200,
+    "sum": 1264856917,
+    "err": null
+   },
+   {
+    "sec": 250,
+    "sum": 3576530610,
+    "err": null
+   }
+  ]
+ }
+}

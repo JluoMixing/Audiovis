@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<!-- 让 Edge/Chrome 的 --app 窗口标题栏跟随界面底色。
+     不设的话是浅灰蓝（与深色界面割裂），设了就连成一体。
+     这是浏览器内核允许的唯一「自定义标题栏配色」手段。 -->
+<meta name="theme-color" content="#0d0e11">
+<title>Audiovis</title>
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAWElEQVR4nGPk5RNkoCVgoqnpoxYMCgtYiFTnOOssmsj+NGNiNA79IBq1gCAgNhVhBcQkraEfRAMRB/KxTWgiDxfXkW3B0A+iUQtGLRgCFjCOtuxGLaAYAADuWgmdeL44nwAAAABJRU5ErkJggg==">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/modal.css">
+
+</head>
+<body>
+<!-- 自绘标题栏（无边框窗口用）。
+     只在 /api/window 检测到支持时才显示 —— 浏览器标签页里不显示。 -->
+<div class="titlebar pywebview-drag-region" id="titlebar" style="display:none">
+  <div class="tbDrag pywebview-drag-region" id="tbDrag">
+    <span class="tbLogo">◫</span>
+    <span class="tbName">AUDIOVIS</span>
+  </div>
+  <div class="tbBtns">
+    <button class="tbBtn" id="tbMin" data-i18n-title="win.minimize" title="最小化">
+      <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5h6" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+    <button class="tbBtn" id="tbMax" data-i18n-title="win.maximize" title="最大化">
+      <svg width="10" height="10" viewBox="0 0 10 10"><rect x="2.5" y="2.5" width="5" height="5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+    <button class="tbBtn tbClose" id="tbClose" data-i18n-title="win.close" title="关闭">
+      <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5 2.5l5 5M7.5 2.5l-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- 拖拽导入遮罩：拖文件到窗口任意位置时显示 -->
+<div class="dropMask" id="dropMask">
+  <div class="dropBox">
+    <div class="dropIcon">↓</div>
+    <div class="dropTitle" data-i18n="drop.title">松开以导入</div>
+    <div class="dropHint" data-i18n="drop.hint">支持 FLP 工程与音频文件</div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     启动页
+     ============================================================ -->
+<div id="welcome">
+  <div class="wBrand">
+    <h1>AUDIOVIS</h1>
+    <div class="sub">FL Studio Visualizer</div>
+    <div class="rule"></div>
+  </div>
+
+  <div class="wCard">
+    <h2 data-i18n="start.heading">导入工程</h2>
+    <div class="hint" data-i18n="start.hint">选择 FL Studio 工程文件与对应的混音音频。两者都导入后才能进入编辑。</div>
+
+    <div class="dropRow">
+      <div class="drop" id="dropFlp">
+        <div class="icon">◫</div>
+        <div class="label">FLP 工程</div>
+        <div class="meta" id="flpMeta" data-i18n="start.dropHint">点击选择或拖入</div>
+      </div>
+      <div class="drop" id="dropAudio">
+        <div class="icon">◉</div>
+        <div class="label" data-i18n="start.audio">混音音频</div>
+        <div class="meta" id="audioMeta" data-i18n="start.dropHint">点击选择或拖入</div>
+      </div>
+    </div>
+
+    <div id="drumNotice" style="display:none;margin:14px 0 0;
+         padding:11px 13px;border-radius:5px;font-size:11.5px;
+         line-height:1.75;background:rgba(78,168,222,.07);
+         border:1px solid rgba(78,168,222,.26);color:var(--fg1)"></div>
+
+    <div class="recentBox" id="recentBox" style="display:none">
+      <div class="recentTitle" data-i18n="proj.recent">最近工程</div>
+      <div class="recentList" id="recentList"></div>
+    </div>
+
+    <div class="wActions">
+      <span style="font-size:11px;color:var(--fg2)" id="importStatus" data-i18n="start.waiting">等待导入…</span>
+      <span class="spacer"></span>
+      <button class="btn primary" id="btnEnter" disabled data-i18n="start.enter">进入编辑器</button>
+    </div>
+  </div>
+
+  <div class="wFoot">
+    <span data-i18n-html="foot.line1"></span><br>
+    <span data-i18n-html="foot.line2"></span>
+  </div>
+</div>
+
+<!-- ============================================================
+     主界面
+     ============================================================ -->
+<div id="app">
+  <div class="topbar">
+    <div class="tbBrand">AUDIOVIS</div>
+    <div class="tbProject" id="tbProjectBar">
+      <button class="btn ghost" id="btnProjOpen" data-i18n="proj.open">打开工程</button>
+      <button class="btn ghost" id="btnProjSave" data-i18n="proj.save">保存工程</button>
+      <span class="tbDirty" id="tbDirty" style="display:none"
+            data-i18n="proj.dirty">未保存</span>
+    </div>
+    <div class="tbFile">
+      <span id="tbProj">—</span><span>·</span><span id="tbAudio">—</span>
+    </div>
+    <div class="tbSpacer"></div>
+    <div class="tbGroup">
+      <span data-i18n="top.canvas">画布</span>
+      <div class="seg" id="segOrient">
+        <button data-o="land" class="on">1920×1080</button>
+        <button data-o="port">1080×1920</button>
+      </div>
+    </div>
+    <div class="tbGroup">
+      <span data-i18n="top.fps">帧率</span>
+      <div class="seg" id="segFps">
+        <button data-f="24">24</button>
+        <button data-f="30" class="on">30</button>
+        <button data-f="60">60</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <!-- 左栏 -->
+    <div class="panel left">
+      <div class="panelHead">资源<span class="badge" data-i18n="side.tabAll">主题 · 模板 · 组件</span></div>
+      <div class="panelBody">
+
+        <div class="sectionLabel theme"><span class="dot"></span>主题库</div>
+        <div class="themeGrid" id="themeGrid"></div>
+
+        <div class="sectionLabel tpl mt"><span class="dot"></span>模板库</div>
+        <div class="tplList" id="tplList"></div>
+
+        <div class="sectionLabel comp mt"><span class="dot"></span>组件库</div>
+        <div id="compLib"></div>
+
+      </div>
+    </div>
+
+    <!-- 中栏 -->
+    <div class="panel center">
+      <div class="canvasBar">
+        <div class="cbItem"><span id="cbSize">1920 × 1080</span></div>
+        <div class="cbItem"><span id="cbCount">0 个组件</span></div>
+        <div class="spacer"></div>
+        <button class="zoomBtn" id="zoomOut">−</button>
+        <span class="zoomVal" id="zoomVal">62%</span>
+        <button class="zoomBtn" id="zoomIn">+</button>
+        <button class="zoomBtn" id="zoomFit" title="适应窗口" data-i18n-title="canvas.fit">⤢</button>
+      </div>
+
+      <div class="canvasWrap" id="canvasWrap">
+        <!-- stageBox 承担「缩放后的布局尺寸」，stage 只做视觉缩放。
+             这样布局盒 = 视觉盒，滚动范围才正确。
+             见 .canvasWrap / .stageBox 的注释。 -->
+        <div class="stageBox" id="stageBox">
+        <div class="stage" id="stage">
+          <div class="emptyHint" id="emptyHint">
+            <div class="big" data-i18n="canvas.empty">画布为空</div>
+            <div class="small" data-i18n="canvas.emptyHint">从左侧拖拽组件到这里，或套用模板库中的布局</div>
+          </div>
+          <div class="previewBadge" id="previewBadge" style="display:none">
+            静帧预览 · 第 <span id="pvFrame">48.0</span> 秒
+          </div>
+          <div class="guide v" id="gv"></div>
+          <div class="guide h" id="gh"></div>
+          <div class="marquee" id="marquee"></div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右栏 -->
+    <div class="panel right">
+      <div class="panelHead">属性<span class="badge" id="propBadge" data-i18n="prop.none">未选中</span></div>
+      <div class="panelBody" id="propBody">
+        <div class="propEmpty" id="propEmpty">
+          在画布中选中一个组件<br data-i18n="prop.emptyHint">以编辑它的位置与尺寸
+        </div>
+
+        <div id="propForm" style="display:none">
+          <!-- 文字专属面板：仅当选中 text 组件时显示 -->
+          <div id="textPanel" style="display:none">
+            <div class="sectionLabel"><span class="dot" style="background:var(--acc)"></span>文字</div>
+            <div class="propGroup">
+              <textarea id="tContent" rows="2"
+                style="width:100%;background:var(--bg2);border:1px solid var(--line2);
+                       color:var(--fg0);border-radius:3px;padding:6px 8px;
+                       font-size:12px;font-family:inherit;resize:vertical;
+                       outline:none"></textarea>
+              <div style="font-size:10px;color:var(--fg2);margin-top:4px;line-height:1.6">
+                可用变量：<code>{title}</code> <code>{tempo}</code>
+                <code>{time}</code> <code>{bars}</code> <code>{tracks}</code>
+              </div>
+            </div>
+
+            <div class="sectionLabel mt"><span class="dot" style="background:var(--acc)"></span>字体</div>
+            <div class="propGroup">
+              <div class="propRow">
+                <label data-i18n="prop.font">字体</label>
+                <select id="tFont"
+                  style="flex:1;min-width:0;background:var(--bg2);
+                         border:1px solid var(--line2);color:var(--fg0);
+                         border-radius:3px;padding:5px 8px;font-size:11.5px;
+                         outline:none"></select>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.role">角色</label>
+                <select id="tRole" title="决定用主题的哪套字体；「跟随主题」时生效" data-i18n-title="prop.fontHint"
+                  style="flex:1;min-width:0;background:var(--bg2);
+                         border:1px solid var(--line2);color:var(--fg0);
+                         border-radius:3px;padding:5px 8px;font-size:11.5px">
+                  <option value="display" data-i18n="prop.roleDisplay">标题（display）</option>
+                  <option value="body" data-i18n="prop.roleBody">正文（body）</option>
+                  <option value="mono" data-i18n="prop.roleMono">等宽（mono）</option>
+                </select>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.size">字号</label>
+                <input type="number" id="tSize" min="8" max="400" step="2">
+                <span class="unit">px</span>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.weight">字重</label>
+                <select id="tWeight"
+                  style="flex:1;min-width:0;background:var(--bg2);
+                         border:1px solid var(--line2);color:var(--fg0);
+                         border-radius:3px;padding:5px 8px;font-size:11.5px">
+                  <option value="0" data-i18n="prop.followTheme">跟随主题</option>
+                  <option value="300" data-i18n="prop.weight300">细体 300</option>
+                  <option value="400" data-i18n="prop.weight400">常规 400</option>
+                  <option value="600" data-i18n="prop.weight600">中粗 600</option>
+                  <option value="700" data-i18n="prop.weight700">粗体 700</option>
+                  <option value="900" data-i18n="prop.weight900">特粗 900</option>
+                </select>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.align">对齐</label>
+                <div class="seg" id="tAlign" style="flex:1">
+                  <button data-a="left" class="on" style="flex:1" data-i18n="prop.alignLeft">左</button>
+                  <button data-a="center" style="flex:1" data-i18n="prop.alignCenter">中</button>
+                  <button data-a="right" style="flex:1" data-i18n="prop.alignRight">右</button>
+                </div>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.lineHeight">行距</label>
+                <input type="number" id="tLine" min="0.8" max="3" step="0.05">
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.letterSpacing">字距</label>
+                <input type="number" id="tTrack" min="0" max="20" step="0.5">
+                <span class="unit">px</span>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.color">颜色</label>
+                <select id="tColor"
+                  style="flex:1;min-width:0;background:var(--bg2);
+                         border:1px solid var(--line2);color:var(--fg0);
+                         border-radius:3px;padding:5px 8px;font-size:11.5px">
+                  <option value="ink" data-i18n="prop.colorInk">主色（ink）</option>
+                  <option value="inkMid" data-i18n="prop.colorInkMid">次色（inkMid）</option>
+                  <option value="inkFaint" data-i18n="prop.colorInkFaint">弱色（inkFaint）</option>
+                  <option value="accent" data-i18n="prop.colorAccent">强调（accent）</option>
+                  <option value="accent2" data-i18n="prop.colorAccent2">强调二（accent2）</option>
+                </select>
+              </div>
+              <div class="propRow">
+                <label data-i18n="prop.rotation">旋转</label>
+                <div class="seg" id="tRot" style="flex:1">
+                  <button data-r="0" class="on" style="flex:1">0°</button>
+                  <button data-r="90" style="flex:1">90°</button>
+                  <button data-r="180" style="flex:1">180°</button>
+                  <button data-r="270" style="flex:1">270°</button>
+                </div>
+              </div>
+              <div class="propRow" style="gap:14px">
+                <label style="width:auto;display:flex;gap:6px;align-items:center">
+                  <input type="checkbox" id="tUpper"> 全大写
+                </label>
+                <label style="width:auto;display:flex;gap:6px;align-items:center">
+                  <input type="checkbox" id="tItalic"> 倾斜
+                </label>
+                <label style="width:auto;display:flex;gap:6px;align-items:center">
+                  <input type="checkbox" id="tBg"> 底板
+                </label>
+                <label style="width:auto;display:flex;gap:6px;align-items:center"
+                       title="开启后框由你决定，文本在框内换行；关闭则框自适应文本" data-i18n-title="prop.fixedWrapHint">
+                  <input type="checkbox" id="tWrap"> 固定换行
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="sectionLabel"><span class="dot" style="background:var(--fg2)"></span>几何</div>
+          <div class="propGroup">
+            <div class="propRow"><label>X</label><input type="number" id="pX" step="1"><span class="unit">px</span></div>
+            <div class="propRow"><label>Y</label><input type="number" id="pY" step="1"><span class="unit">px</span></div>
+            <div class="propRow"><label data-i18n="prop.width">宽</label><input type="number" id="pW" step="1"><span class="unit">px</span></div>
+            <div class="propRow"><label data-i18n="prop.height">高</label><input type="number" id="pH" step="1"><span class="unit">px</span></div>
+            <div class="propRow"><label data-i18n="prop.ratio">比例</label><input type="text" id="pRatio" readonly style="color:var(--fg2)"></div>
+          </div>
+
+          <div class="sectionLabel mt"><span class="dot" style="background:var(--fg2)"></span>外观</div>
+          <div class="propGroup">
+            <div class="propRow">
+              <label data-i18n="prop.fade">柔化</label>
+              <input type="range" id="pFade" min="0" max="50" value="18" step="1"
+                     style="flex:1;accent-color:var(--acc)">
+              <span class="unit" id="pFadeVal" style="width:34px">18%</span>
+            </div>
+            <div style="font-size:10.5px;color:var(--fg2);margin-top:-2px;
+                        padding-left:70px;line-height:1.5">
+              0 = 硬边卡片　·　越大越融入画布
+            </div>
+            <div class="propRow" style="margin-top:6px">
+              <label style="width:auto;display:flex;gap:6px;align-items:center"
+                     title="关闭后组件内自带的数值、刻度、单位等文字会被隐藏，画面更干净" data-i18n-title="prop.hideTextHint">
+                <input type="checkbox" id="pHideText"> 隐藏组件内的文字
+              </label>
+            </div>
+
+            <!-- 窗口大小：只对有时间窗的组件显示（见 渲染属性） -->
+            <div class="propRow" id="pWinRow" style="margin-top:6px;display:none">
+              <label data-i18n="prop.window">窗口</label>
+              <input type="range" id="pWin" min="1" max="64" value="2" step="1"
+                     style="flex:1;accent-color:var(--acc)">
+              <span class="unit" id="pWinVal" style="width:44px">2 小节</span>
+            </div>
+            <div id="pWinHint" style="display:none;font-size:10.5px;color:var(--fg2);
+                        margin-top:-2px;padding-left:70px;line-height:1.5">
+              越大看得越远　·　越小越聚焦
+            </div>
+          </div>
+
+          <div class="sectionLabel mt"><span class="dot" style="background:var(--fg2)"></span>层序</div>
+          <div class="propGroup">
+            <div class="propRow"><label data-i18n="prop.zIndex">层级</label><input type="number" id="pZ" step="1"></div>
+            <div style="display:flex;gap:6px;margin-top:2px">
+              <button class="btn ghost" style="flex:1;padding:5px;font-size:11px" id="zUp" data-i18n="prop.raise">上移一层</button>
+              <button class="btn ghost" style="flex:1;padding:5px;font-size:11px" id="zDown" data-i18n="prop.lower">下移一层</button>
+            </div>
+          </div>
+
+          <div class="sectionLabel mt"><span class="dot" style="background:var(--fg2)"></span>可见性</div>
+          <div class="propGroup">
+            <div style="display:flex;gap:6px">
+              <button class="btn ghost" style="flex:1;padding:5px;font-size:11px" id="btnHide" data-i18n="prop.hide">隐藏</button>
+              <button class="btn ghost" style="flex:1;padding:5px;font-size:11px" id="btnDel" data-i18n="menu.delete">删除</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sectionLabel mt"><span class="dot" style="background:var(--fg2)"></span>图层</div>
+        <div class="layerList" id="layerList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footbar">
+    <div class="fbInfo">
+      <span>画布 <b id="fbSize">1920×1080</b></span>
+      <span>组件 <b id="fbCount">0</b></span>
+      <span>主题 <b id="fbTheme" data-i18n="common.default">默认</b></span>
+      <span>静帧 <b id="fbFrame">48.0s</b></span>
+    </div>
+    <div class="fbSpacer"></div>
+    <button class="btn ghost" id="btnSaveLayout" data-i18n="foot.saveLayout">保存布局</button>
+    <button class="btn ghost" id="btnLoadLayout" data-i18n="foot.loadLayout">读取布局</button>
+    <button class="btn ghost" id="btnSettings" data-i18n="foot.settings">设置</button>
+    <button class="btn primary" id="btnExport" data-i18n="export.title">导出视频</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="ctxmenu" id="ctxmenu"></div>
+
+<!-- ============================================================
+     导出面板
+     ============================================================ -->
+<!-- ============================================================
+     设置面板
+     ============================================================ -->
+<div class="modal" id="keysModal">
+  <div class="mCard" style="width:640px">
+    <h2 data-i18n="keys.title">快捷键</h2>
+    <div class="hint" data-i18n="keys.hint">按 ? 或 Esc 关闭</div>
+    <div class="keysGrid" id="keysGrid"></div>
+    <div class="mActions">
+      <span class="spacer"></span>
+      <button class="btn" id="keysClose" data-i18n="export.close">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="setModal">
+  <div class="mCard" style="width:680px">
+    <h2 data-i18n="set.title">设置</h2>
+    <div class="hint" data-i18n="set.hint">
+      这些设置保存在用户目录，重启后仍然有效。
+    </div>
+
+    <div class="mGrid">
+      <label data-i18n="set.language">语言</label>
+      <div class="mRow">
+        <select id="setLang" style="width:200px">
+          <option value="auto" data-i18n="set.langAuto">跟随系统</option>
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+        </select>
+        <span class="mUnit" id="setLangHint"></span>
+      </div>
+
+      <label data-i18n="set.projDir">工程目录</label>
+      <div class="mRow">
+        <input type="text" id="setProjDir"
+               data-i18n-placeholder="set.pathPlaceholder"
+               placeholder="留空 = 使用系统默认位置">
+      </div>
+
+      <label data-i18n="set.exportDir">导出目录</label>
+      <div class="mRow">
+        <input type="text" id="setExportDir"
+               data-i18n-placeholder="set.pathPlaceholder"
+               placeholder="留空 = 使用系统默认位置">
+      </div>
+
+      <label data-i18n="set.cacheDir">缓存目录</label>
+      <div class="mRow">
+        <input type="text" id="setCacheDir"
+               data-i18n-placeholder="set.pathPlaceholder"
+               placeholder="留空 = 使用系统默认位置">
+        <span class="mUnit" id="setCacheSize"></span>
+      </div>
+
+      <label data-i18n="set.exportDefaults">导出默认值</label>
+      <div class="mRow">
+        <span class="mUnit" data-i18n="set.fps">帧率</span>
+        <input type="number" id="setFps" min="1" max="120" step="1"
+               style="width:70px">
+        <span class="mUnit" data-i18n="set.preset">预设</span>
+        <select id="setPreset" style="width:130px">
+          <option value="ultrafast">ultrafast</option>
+          <option value="veryfast">veryfast</option>
+          <option value="fast">fast</option>
+          <option value="medium">medium</option>
+          <option value="slow">slow</option>
+          <option value="veryslow">veryslow</option>
+        </select>
+        <span class="mUnit" data-i18n="set.parallel">并行度</span>
+        <input type="number" id="setParallel" min="0" max="16" step="1"
+               style="width:60px" placeholder="0">
+      </div>
+
+      <label data-i18n="set.openFolder">导出后</label>
+      <div class="mRow">
+        <label class="mCheck">
+          <input type="checkbox" id="setOpenFolder">
+          <span data-i18n="set.openFolderLabel">自动打开输出目录</span>
+        </label>
+      </div>
+
+      <label data-i18n="set.configFile">配置文件</label>
+      <div class="mRow">
+        <span class="mUnit" id="setConfigPath"
+              style="font-family:Consolas,monospace;font-size:10.5px;
+                     word-break:break-all"></span>
+      </div>
+    </div>
+
+    <div class="mActions">
+      <button class="btn ghost" id="setReset" data-i18n="set.reset">恢复默认</button>
+      <span class="spacer"></span>
+      <button class="btn" id="setClose" data-i18n="set.close">关闭</button>
+      <button class="btn primary" id="setSave" data-i18n="set.save">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="exModal">
+  <div class="mCard">
+    <h2 data-i18n="export.title">导出视频</h2>
+    <div class="hint" data-i18n="export.hint">渲染在本地进行，可随时取消。参数留空则用已验证的最优默认值。</div>
+
+    <div class="mGrid">
+      <label data-i18n="ex.preset">预设</label>
+      <div class="mRow">
+        <select id="exPresetPick" style="width:170px">
+          <option value="standard" data-i18n="ex.presetStandard">标准</option>
+          <option value="quality" data-i18n="ex.presetQuality">质量优先</option>
+          <option value="fast" data-i18n="ex.presetFast">快速预览</option>
+          <option value="custom" data-i18n="ex.presetCustom">自定义</option>
+        </select>
+        <span class="mUnit" data-i18n="ex.presetHint">预设只填参数，仍可手改</span>
+      </div>
+
+      <label data-i18n="export.output">输出路径</label>
+      <div class="mRow">
+        <input type="text" id="exOut" placeholder="输出 mp4 的完整路径" data-i18n-placeholder="export.outputHint">
+        <button class="btn ghost" id="exPickOut" data-i18n="export.browse">选择…</button>
+      </div>
+
+      <label data-i18n="export.start">起点</label>
+      <div class="mRow">
+        <input type="number" id="exStart" min="0" step="0.1" style="width:110px">
+        <span class="mUnit" data-i18n="export.startHint">秒　（从工程的该时刻开始）</span>
+      </div>
+
+      <label data-i18n="export.duration">时长</label>
+      <div class="mRow">
+        <input type="number" id="exDur" min="0.1" step="1" style="width:110px">
+        <span class="mUnit">秒　（工程全长 <b id="exTotal">–</b> 秒）</span>
+      </div>
+      <label></label>
+      <div class="mRow">
+        <span class="mUnit" id="exDurHint"></span>
+      </div>
+
+      <label data-i18n="top.canvas">画布</label>
+      <div class="mRow"><span class="mUnit"><b id="exSize">–</b>　
+        帧率 <b id="exFps">–</b> fps　（由顶栏决定）</span></div>
+
+      <label data-i18n="export.bitrate">码率</label>
+      <div class="mRow">
+        <input type="text" id="exBitrate" placeholder="留空 = 质量优先（CRF 18）" data-i18n-placeholder="export.bitrateHint"
+               style="width:220px">
+        <span class="mUnit" data-i18n="export.bitrateExample">如 12M</span>
+      </div>
+
+      <label data-i18n="export.preset">编码预设</label>
+      <div class="mRow">
+        <select id="exPreset" style="width:170px">
+          <option value="ultrafast">ultrafast（最快，画质略低）</option>
+          <option value="veryfast">veryfast</option>
+          <option value="faster">faster</option>
+          <option value="fast">fast</option>
+          <option value="medium" selected>medium（默认，画质/速度均衡）</option>
+          <option value="slow">slow</option>
+          <option value="veryslow">veryslow（最慢，画质最好）</option>
+        </select>
+      </div>
+
+      <label data-i18n="export.parallel">并行度</label>
+      <div class="mRow">
+        <input type="number" id="exParallel" min="1" max="16" step="1"
+               placeholder="自动" data-i18n-placeholder="export.auto" style="width:110px">
+        <span class="mUnit" data-i18n="export.parallelHint">留空 = 自动（实测最优 4 路）</span>
+      </div>
+
+      <label data-i18n="export.audioTrack">音轨</label>
+      <div class="mRow">
+        <label class="mCheck"><input type="checkbox" id="exAudio" checked>
+          混入音频</label>
+      </div>
+    </div>
+
+    <div id="exProg" style="display:none;margin-top:14px">
+      <div class="mBar"><i id="exBar" style="width:0%"></i></div>
+      <div class="mProgText">
+        <span id="exStage" data-i18n="export.ready">准备</span>
+        <span class="spacer"></span>
+        <span id="exPct">0%</span>
+      </div>
+      <div class="mMsg" id="exMsg"></div>
+    </div>
+
+    <div class="mResult" id="exResult" style="display:none"></div>
+    <div class="mErr" id="exErr" style="display:none"></div>
+
+    <div class="mActions">
+      <button class="btn ghost" id="exCancel" data-i18n="export.cancel">取消</button>
+      <span class="spacer"></span>
+      <button class="btn" id="exClose" data-i18n="export.close">关闭</button>
+      <button class="btn primary" id="exGo" data-i18n="export.startBtn">开始导出</button>
+    </div>
+  </div>
+</div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-data.js"></script>
+  <script src="js/i18n-apply.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

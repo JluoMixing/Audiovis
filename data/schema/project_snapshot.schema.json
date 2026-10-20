@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FL Studio Visualizer 工程快照 Schema",
+  "description": "1.0.1：Visualizer 依赖稳定 Schema，而不依赖 PyFLP 内部对象。所有时间保留原始 PPQ tick。相对 1.0.0 新增 metadata.tempo（双 parser 交叉验证后纳入）。",
+  "type": "object",
+  "required": ["schema_version", "metadata", "arrangement", "patterns", "audio_sources", "scope"],
+  "properties": {
+    "schema_version": {"const": "1.0.1-phase3"},
+    "metadata": {"type": "object", "required": ["fl_version", "ppq", "tempo", "source_file_sha256", "primary_source"], "properties": {"fl_version": {"type": "string"}, "ppq": {"type": "integer", "minimum": 1}, "tempo": {"type": "object", "required": ["value", "unit", "source"], "description": "工程速度。unit 固定为 bpm。source 说明读数来源。注意：该值代表工程级速度读数，不代表全曲恒定速度（未验证 tempo automation）。", "properties": {"value": {"type": "number", "exclusiveMinimum": 0}, "unit": {"const": "bpm"}, "source": {"type": "string"}, "cross_validated": {"type": "boolean"}, "evidence": {"type": "string"}}}, "source_file_sha256": {"type": "string"}, "parser_validation": {"type": "string"}, "primary_source": {"type": "string"}}},
+    "arrangement": {"type": "object", "required": ["tracks", "markers"], "properties": {"id": {}, "name": {}, "tracks": {"type": "array"}, "markers": {"type": "array"}}},
+    "patterns": {"type": "array", "description": "每个 Pattern 应拥有 id、channel_ids 与 notes；note 的关键时间字段应使用带 value/unit/source 的对象。"},
+    "audio_sources": {"type": "array", "description": "真实 parser 读出的 sample-backed 音频源；路径可在发布快照前脱敏。"},
+    "scope": {"type": "object", "required": ["automation", "channel_to_mixer", "ui_ground_truth"], "description": "明确说明本版本未纳入的能力与验证状态。"}
+  }
+}

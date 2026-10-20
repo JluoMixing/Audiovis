@@ -1,0 +1,168 @@
+[
+ {
+  "工程": "amapiano",
+  "目录存在": true,
+  "flp": {
+   "路径": "E:\\FL_Project\\amapiano\\amapiano.flp",
+   "名称": "amapiano.flp",
+   "字节": 1265631,
+   "sha256": "6d3f5296197898a2",
+   "是否同名": true
+  },
+  "音频": [
+   {
+    "名称": "amapiano.mp3",
+    "字节": 1583190,
+    "扩展名": ".mp3"
+   }
+  ],
+  "其他flp": []
+ },
+ {
+  "工程": "drill",
+  "目录存在": true,
+  "flp": {
+   "路径": "E:\\FL_Project\\drill\\drill.flp",
+   "名称": "drill.flp",
+   "字节": 921586,
+   "sha256": "fbecbbc5c763835e",
+   "是否同名": true
+  },
+  "音频": [],
+  "其他flp": []
+ },
+ {
+  "工程": "guitar birth",
+  "目录存在": false,
+  "flp": null,
+  "音频": []
+ },
+ {
+  "工程": "half fire half sea",
+  "目录存在": false,
+  "flp": null,
+  "音频": []
+ },
+ {
+  "工程": "island",
+  "目录存在": true,
+  "flp": {
+   "路径": "E:\\FL_Project\\island\\island.flp",
+   "名称": "island.flp",
+   "字节": 3724213,
+   "sha256": "aae6a0f3083860ea",
+   "是否同名": true
+  },
+  "音频": [
+   {
+    "名称": "island.mp3",
+    "字节": 3222521,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "Monty Python's Life of Brian.mp3",
+    "字节": 11249483,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "dnb_drums.wav",
+    "字节": 1092726,
+    "扩展名": ".wav"
+   },
+   {
+    "名称": "drums_fills.wav",
+    "字节": 1092726,
+    "扩展名": ".wav"
+   },
+   {
+    "名称": "piano_chords.wav",
+    "字节": 2185262,
+    "扩展名": ".wav"
+   }
+  ],
+  "其他flp": [
+   "island - -b10.flp",
+   "island - 20.flp",
+   "island - ana-20.flp",
+   "island - analog#3.flp",
+   "island - f20-ana.flp",
+   "island - f20.flp",
+   "island - god.flp",
+   "island - serato.flp",
+   "island -limiter.flp"
+  ]
+ },
+ {
+  "工程": "jungle",
+  "目录存在": true,
+  "flp": {
+   "路径": "E:\\FL_Project\\jungle\\jungle.flp",
+   "名称": "jungle.flp",
+   "字节": 1058671,
+   "sha256": "b404261bfb6d7f71",
+   "是否同名": true
+  },
+  "音频": [
+   {
+    "名称": "chord_verb.wav",
+    "字节": 6748286,
+    "扩展名": ".wav"
+   },
+   {
+    "名称": "pad_verb.wav",
+    "字节": 8228598,
+    "扩展名": ".wav"
+   }
+  ],
+  "其他flp": []
+ },
+ {
+  "工程": "rage",
+  "目录存在": true,
+  "flp": {
+   "路径": "E:\\FL_Project\\rage\\rage.flp",
+   "名称": "rage.flp",
+   "字节": 440534,
+   "sha256": "c5296b84cb7b4654",
+   "是否同名": true
+  },
+  "音频": [
+   {
+    "名称": "1_Playboi Carti - Long Time (Intro)_(Vocals).mp3",
+    "字节": 8446005,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "1_Playboi Carti,The Weeknd - RATHER LIE_(Vocals).mp3",
+    "字节": 8380233,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "Playboi Carti - Long Time (Intro).mp3",
+    "字节": 8778819,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "Playboi Carti,The Weeknd - RATHER LIE.mp3",
+    "字节": 8453807,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "rage.mp3",
+    "字节": 8137721,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "wt_vocal.mp3",
+    "字节": 7991435,
+    "扩展名": ".mp3"
+   },
+   {
+    "名称": "他们都管我叫青岛王.mp3",
+    "字节": 7987256,
+    "扩展名": ".mp3"
+   }
+  ],
+  "其他flp": []
+ }
+]

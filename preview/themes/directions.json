@@ -1,0 +1,172 @@
+{
+  "_note": "设计令牌：所有组件的视觉参数唯一来源。组件代码不得硬编码颜色/字号/圆角。新增方向只需在此增加一组令牌。",
+
+  "directions": {
+    "instrument": {
+      "name": "精密仪器",
+      "subtitle": "Precision Instrument",
+      "intent": "参考测量仪器与示波器。近黑冷调、单强调色、发丝级网格、等宽数字。克制、技术、昂贵感。用留白与刻度表达精度，不用边框包裹内容。",
+      "panelStyle": "rule",
+
+      "canvas": { "bg": "#07090B" },
+      "surface": {
+        "fill": "#0D1013",
+        "fillAlt": "#11161A",
+        "border": "#1B2126",
+        "borderStrong": "#2A333A"
+      },
+      "text": {
+        "primary": "#E4EBF1",
+        "secondary": "#78868F",
+        "tertiary": "#414B53",
+        "inverse": "#07090B"
+      },
+      "accent": {
+        "primary": "#00E5A0",
+        "secondary": "#4DA3FF",
+        "tertiary": "#FFB020"
+      },
+      "data": {
+        "pattern": "#00B87E",
+        "patternEdge": "#00E5A0",
+        "audio": "#5C6B78",
+        "audioEdge": "#8A9BA8",
+        "wave": "#4DA3FF",
+        "waveRms": "#9FD8FF",
+        "grid": "#12181C",
+        "gridStrong": "#1E262C",
+        "playhead": "#FF4D6A"
+      },
+      "ramp": {
+        "spectrum": ["#060A0B", "#0A2A28", "#0E5C4C", "#14A87C", "#48E8B4", "#D0FFF0"],
+        "vector": ["#060A0B", "#0A2A28", "#0E5C4C", "#14A87C", "#48E8B4", "#D0FFF0"],
+        "events": ["#0A2A28", "#48E8B4"]
+      },
+      "type": {
+        "family": "\"Segoe UI\", \"Microsoft YaHei\", system-ui, sans-serif",
+        "mono": "\"Cascadia Mono\", Consolas, monospace",
+        "labelSize": 10,
+        "labelTracking": 1.6,
+        "noteSize": 11,
+        "tickSize": 9,
+        "valueSize": 26,
+        "unitSize": 10,
+        "clockSize": 30
+      },
+      "shape": { "radius": 2, "hairline": 1, "pad": 14 },
+      "effects": { "glow": 6, "scanline": false }
+    },
+
+    "editorial": {
+      "name": "编辑排版",
+      "subtitle": "Editorial",
+      "intent": "参考瑞士国际主义平面设计。暖调深棕、朱红与琥珀双色、直角无圆角、字号对比强烈。数据即排版，靠层级与留白建立秩序，几乎不用网格线。",
+      "panelStyle": "solid",
+
+      "canvas": { "bg": "#100E0B" },
+      "surface": {
+        "fill": "#191510",
+        "fillAlt": "#1F1A14",
+        "border": "#2A231A",
+        "borderStrong": "#3D3325"
+      },
+      "text": {
+        "primary": "#F6F1E7",
+        "secondary": "#9A8F7C",
+        "tertiary": "#5A5142",
+        "inverse": "#100E0B"
+      },
+      "accent": {
+        "primary": "#E85A3C",
+        "secondary": "#E8B44B",
+        "tertiary": "#6FA8A0"
+      },
+      "data": {
+        "pattern": "#E85A3C",
+        "patternEdge": "#FF7A5C",
+        "audio": "#E8B44B",
+        "audioEdge": "#FFD070",
+        "wave": "#E8B44B",
+        "waveRms": "#FFE4A8",
+        "grid": "#221C15",
+        "gridStrong": "#332A1F",
+        "playhead": "#F6F1E7"
+      },
+      "ramp": {
+        "spectrum": ["#100E0B", "#3A2A12", "#8A5A18", "#D89A28", "#E85A3C", "#FFE8C8"],
+        "vector": ["#100E0B", "#3A2A12", "#8A5A18", "#D89A28", "#E85A3C", "#FFE8C8"],
+        "events": ["#3A2A12", "#E8B44B"]
+      },
+      "type": {
+        "family": "\"Segoe UI\", \"Microsoft YaHei\", system-ui, sans-serif",
+        "mono": "\"Cascadia Mono\", Consolas, monospace",
+        "labelSize": 10,
+        "labelTracking": 2.2,
+        "noteSize": 11,
+        "tickSize": 9,
+        "valueSize": 34,
+        "unitSize": 10,
+        "clockSize": 38
+      },
+      "shape": { "radius": 0, "hairline": 1, "pad": 18 },
+      "effects": { "glow": 0, "scanline": false }
+    },
+
+    "luminous": {
+      "name": "光影深度",
+      "subtitle": "Luminous",
+      "intent": "参考光学与发光材质。深蓝黑底、蓝紫青三色、圆角与内发光。用光的强弱与色彩渐变表达层次，而非线条。数据像从暗处浮现。",
+      "panelStyle": "glass",
+
+      "canvas": { "bg": "#04050A" },
+      "surface": {
+        "fill": "#0A0D16",
+        "fillAlt": "#0E1220",
+        "border": "#1A2033",
+        "borderStrong": "#2A3350"
+      },
+      "text": {
+        "primary": "#EAF0FF",
+        "secondary": "#8792B4",
+        "tertiary": "#4A5474",
+        "inverse": "#04050A"
+      },
+      "accent": {
+        "primary": "#5B8CFF",
+        "secondary": "#B14DFF",
+        "tertiary": "#00E5D0"
+      },
+      "data": {
+        "pattern": "#5B8CFF",
+        "patternEdge": "#9FC0FF",
+        "audio": "#B14DFF",
+        "audioEdge": "#D8A0FF",
+        "wave": "#00E5D0",
+        "waveRms": "#8FFFF4",
+        "grid": "#101528",
+        "gridStrong": "#1B2340",
+        "playhead": "#FF5C8A"
+      },
+      "ramp": {
+        "spectrum": ["#04060E", "#0B1E4A", "#1B4FA8", "#3FA0E8", "#7FE8F0", "#E8FFFF"],
+        "vector": ["#04060E", "#2A1050", "#5B2AA8", "#A050E8", "#E0A0FF", "#FFFFFF"],
+        "events": ["#0B1E4A", "#5B8CFF", "#00E5D0"]
+      },
+      "type": {
+        "family": "\"Segoe UI\", \"Microsoft YaHei\", system-ui, sans-serif",
+        "mono": "\"Cascadia Mono\", Consolas, monospace",
+        "labelSize": 10,
+        "labelTracking": 1.4,
+        "noteSize": 11,
+        "tickSize": 9,
+        "valueSize": 30,
+        "unitSize": 10,
+        "clockSize": 34
+      },
+      "shape": { "radius": 8, "hairline": 1, "pad": 16 },
+      "effects": { "glow": 14, "scanline": false }
+    }
+  },
+
+  "order": ["instrument", "editorial", "luminous"]
+}

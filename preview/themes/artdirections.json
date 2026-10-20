@@ -1,0 +1,540 @@
+{
+ "_note": "艺术方向令牌 v2。八个方向，每版是完整世界观：配色、字体、材质、签名元素、数据翻译策略。渲染器只解释令牌，不硬编码风格。设计立论见 docs/DESIGN_DIRECTIONS.md。",
+ "directions": {
+  "sumi": {
+   "id": "sumi",
+   "name": "墨 · 紙",
+   "subtitle": "SUMI",
+   "concept": "水墨与爵士唱片封套。纸色调冷以避开通用暖奶油底；朱砂只作印章出现一次，是全画面唯一的红。",
+   "translation": "Clip → 枯笔墨笔触；频谱 → 墨分五色；波形 → 一笔长锋；音符 → 飞白点。",
+   "signature": "seal",
+   "palette": {
+    "bg": "#E6E4DD",
+    "surface": "#DEDCD4",
+    "ink": "#1A1815",
+    "inkMid": "#5A564C",
+    "inkFaint": "#A29C8E",
+    "accent": "#A8362A",
+    "accent2": "#2C3B4A",
+    "accent3": "#7A6A4E"
+   },
+   "type": {
+    "display": "\"楷体\", \"KaiTi\", \"华文楷体\", Georgia, serif",
+    "body": "\"宋体\", \"SimSun\", Georgia, serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 78,
+    "labelSize": 12,
+    "tracking": 2.4,
+    "displayWeight": 400
+   },
+   "treatment": {
+    "texture": "paper",
+    "clip": "brush",
+    "spectrum": "inktones",
+    "wave": "stroke",
+    "notes": "splatter",
+    "frame": "none",
+    "labels": "vertical",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.655,
+    "headerH": 152,
+    "footerH": 64,
+    "gap": 34,
+    "pad": 56
+   }
+  },
+  "blueprint": {
+   "id": "blueprint",
+   "name": "図面",
+   "subtitle": "BLUEPRINT",
+   "concept": "氰版蓝图与地形测绘。四边分区标记、图纸标题栏、比例尺与指北针都是真实制图构件，不是装饰。",
+   "translation": "Clip → 按类型区分填充图案（斜线/点刻/交叉）；频谱 → 等高线；波形 → 测绘中心线加站点；音符 → 标尺刻度。",
+   "signature": "titleblock",
+   "palette": {
+    "bg": "#12304A",
+    "surface": "#16395A",
+    "ink": "#DCE9F2",
+    "inkMid": "#8FB2CC",
+    "inkFaint": "#46688A",
+    "accent": "#D98F4E",
+    "accent2": "#C5D8E8",
+    "accent3": "#7FA88F"
+   },
+   "type": {
+    "display": "\"Bahnschrift SemiBold SemiConden\", \"Bahnschrift\", sans-serif",
+    "body": "\"Bahnschrift Light\", \"Bahnschrift\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 50,
+    "labelSize": 10,
+    "tracking": 1.8,
+    "displayWeight": 600
+   },
+   "treatment": {
+    "texture": "grid",
+    "clip": "hatch",
+    "spectrum": "contour",
+    "wave": "centerline",
+    "notes": "ticks",
+    "frame": "dimension",
+    "labels": "zone",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.63,
+    "headerH": 126,
+    "footerH": 56,
+    "gap": 30,
+    "pad": 46
+   }
+  },
+  "longexposure": {
+   "id": "longexposure",
+   "name": "長曝光",
+   "subtitle": "LONG EXPOSURE",
+   "concept": "电影片头与长曝光摄影。光晕（halation）用真实衰减曲线；颗粒随亮度变化，暗部更脏——这是胶片行为，不是均匀噪点。",
+   "translation": "Clip → 柔边光带；频谱 → 虚焦光晕；波形 → 光轨；音符 → 散景光点。",
+   "signature": "halation",
+   "palette": {
+    "bg": "#0E0B09",
+    "surface": "#171310",
+    "ink": "#EADFC9",
+    "inkMid": "#9E9078",
+    "inkFaint": "#564C3E",
+    "accent": "#C98A45",
+    "accent2": "#A86060",
+    "accent3": "#35544E"
+   },
+   "type": {
+    "display": "\"华文中宋\", \"STZhongsong\", \"宋体\", Georgia, serif",
+    "body": "\"等线 Light\", \"等线\", \"Segoe UI\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 64,
+    "labelSize": 11,
+    "tracking": 3.0,
+    "displayWeight": 400
+   },
+   "treatment": {
+    "texture": "grain",
+    "clip": "bloom",
+    "spectrum": "bloom",
+    "wave": "trail",
+    "notes": "bokeh",
+    "frame": "vignette",
+    "labels": "edge",
+    "titles": "center"
+   },
+   "layout": {
+    "mainRatio": 0.67,
+    "headerH": 146,
+    "footerH": 60,
+    "gap": 36,
+    "pad": 52
+   }
+  },
+  "construct": {
+   "id": "construct",
+   "name": "構成",
+   "subtitle": "CONSTRUCT",
+   "concept": "包豪斯与瑞士海报。标题出血被画布切断；网格作为可见的构图骨架而非装饰细线；字号层级拉到极端。",
+   "translation": "Clip → 实心几何块；频谱 → 横向色带；波形 → 折线几何；音符 → 点阵。",
+   "signature": "bleed",
+   "palette": {
+    "bg": "#EFEAE1",
+    "surface": "#E7E1D6",
+    "ink": "#22201D",
+    "inkMid": "#6B655C",
+    "inkFaint": "#AFA795",
+    "accent": "#B23E2B",
+    "accent2": "#C79A3E",
+    "accent3": "#4F5F68"
+   },
+   "type": {
+    "display": "\"Arial Black\", \"Impact\", \"微软雅黑\", sans-serif",
+    "body": "\"Inter\", \"Segoe UI\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 132,
+    "labelSize": 11,
+    "tracking": 0.2,
+    "displayWeight": 900
+   },
+   "treatment": {
+    "texture": "none",
+    "clip": "block",
+    "spectrum": "bands",
+    "wave": "zigzag",
+    "notes": "dots",
+    "frame": "rule",
+    "labels": "structural",
+    "titles": "bleed"
+   },
+   "layout": {
+    "mainRatio": 0.62,
+    "headerH": 186,
+    "footerH": 54,
+    "gap": 26,
+    "pad": 44
+   }
+  },
+  "tape": {
+   "id": "tape",
+   "name": "磁帶",
+   "subtitle": "TAPE",
+   "concept": "lofi hip-hop 与磁带文化的血缘。VU 表指针取代柱状频谱——机械式、有惯性、会过冲，这是模拟表的性格。",
+   "translation": "Clip → 磁带段（可见接带口）；频谱 → 双 VU 表；波形 → 磁头走带轨迹；音符 → 磁粉颗粒。",
+   "signature": "vu",
+   "palette": {
+    "bg": "#23262B",
+    "surface": "#2A2E34",
+    "ink": "#E8E3D6",
+    "inkMid": "#9A9488",
+    "inkFaint": "#5C6068",
+    "accent": "#C4562E",
+    "accent2": "#D8A63C",
+    "accent3": "#5E7A8C"
+   },
+   "type": {
+    "display": "\"Bahnschrift Condensed\", \"Bahnschrift\", sans-serif",
+    "body": "\"阿里巴巴普惠体 R\", \"Segoe UI\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 56,
+    "labelSize": 11,
+    "tracking": 2.0,
+    "displayWeight": 600
+   },
+   "treatment": {
+    "texture": "none",
+    "clip": "tapeseg",
+    "spectrum": "vu",
+    "wave": "headtrail",
+    "notes": "oxide",
+    "frame": "jcard",
+    "labels": "spine",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.64,
+    "headerH": 138,
+    "footerH": 62,
+    "gap": 32,
+    "pad": 50
+   }
+  },
+  "staratlas": {
+   "id": "staratlas",
+   "name": "星図",
+   "subtitle": "STAR ATLAS",
+   "concept": "音乐结构即星图：Pattern 是星座，时间是赤经。要古星图册的深靛与陈金，不要科幻霓虹。",
+   "translation": "note → 星点（大小随力度）；Pattern → 星座（同 Pattern 的 note 连线）；频谱 → 地平辉光；波形 → 天球轨迹。",
+   "signature": "constellation",
+   "palette": {
+    "bg": "#141A2E",
+    "surface": "#1A2138",
+    "ink": "#E4DCC8",
+    "inkMid": "#8E8A7C",
+    "inkFaint": "#4A4E60",
+    "accent": "#C9A961",
+    "accent2": "#7A8BA8",
+    "accent3": "#8A6A7C"
+   },
+   "type": {
+    "display": "\"Gelasio\", \"Georgia\", serif",
+    "body": "\"Gelasio\", \"Georgia\", serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 58,
+    "labelSize": 11,
+    "tracking": 2.6,
+    "displayWeight": 400
+   },
+   "treatment": {
+    "texture": "stars",
+    "clip": "constellation",
+    "spectrum": "horizon",
+    "wave": "celestial",
+    "notes": "stars",
+    "frame": "plate",
+    "labels": "plate",
+    "titles": "center"
+   },
+   "layout": {
+    "mainRatio": 0.66,
+    "headerH": 140,
+    "footerH": 58,
+    "gap": 34,
+    "pad": 54
+   }
+  },
+  "weave": {
+   "id": "weave",
+   "name": "織",
+   "subtitle": "WEAVE",
+   "concept": "Playlist 就是织机：轨道是经线，时间是纬线，Clip 是织出的段落。「Pattern」一词本就源自纺织花版。",
+   "translation": "Clip → 织块（线的密度随音符密度）；频谱 → 密度渐变的织带；波形 → 单根游走的线；音符 → 交织点。",
+   "signature": "loom",
+   "palette": {
+    "bg": "#EDE8DC",
+    "surface": "#E5DFD1",
+    "ink": "#2A2620",
+    "inkMid": "#6E6759",
+    "inkFaint": "#B3AA97",
+    "accent": "#2E4A6B",
+    "accent2": "#9C3B34",
+    "accent3": "#6B5A42"
+   },
+   "type": {
+    "display": "\"华文中宋\", \"STZhongsong\", \"宋体\", Georgia, serif",
+    "body": "\"等线\", \"Segoe UI\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 62,
+    "labelSize": 11,
+    "tracking": 2.8,
+    "displayWeight": 400
+   },
+   "treatment": {
+    "texture": "linen",
+    "clip": "woven",
+    "spectrum": "density",
+    "wave": "thread",
+    "notes": "crossing",
+    "frame": "selvage",
+    "labels": "selvage",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.65,
+    "headerH": 144,
+    "footerH": 58,
+    "gap": 32,
+    "pad": 52
+   }
+  },
+  "risograph": {
+   "id": "risograph",
+   "name": "孔版",
+   "subtitle": "RISOGRAPH",
+   "concept": "Riso 印刷是当下独立音乐与 zine 的真实视觉语言。两色油墨叠印处长出第三色，套印偏移是工艺特征而非缺陷。",
+   "translation": "Clip → 叠印色块；频谱 → 半调网点；波形 → 套印偏移的线；音符 → 网点聚集。",
+   "signature": "overprint",
+   "palette": {
+    "bg": "#F2EEE4",
+    "surface": "#EAE5D8",
+    "ink": "#1E1C1A",
+    "inkMid": "#6A655C",
+    "inkFaint": "#B0A896",
+    "accent": "#E8577F",
+    "accent2": "#2B5FD9",
+    "accent3": "#F0C230"
+   },
+   "type": {
+    "display": "\"Inter Black\", \"Arial Black\", sans-serif",
+    "body": "\"Inter\", \"Segoe UI\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 88,
+    "labelSize": 11,
+    "tracking": 0.6,
+    "displayWeight": 900
+   },
+   "treatment": {
+    "texture": "none",
+    "clip": "overprint",
+    "spectrum": "halftone",
+    "wave": "misregister",
+    "notes": "dots",
+    "frame": "offset",
+    "labels": "offset",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.63,
+    "headerH": 160,
+    "footerH": 56,
+    "gap": 28,
+    "pad": 48
+   }
+  },
+  "default": {
+   "name": "默认",
+   "subtitle": "DEFAULT",
+   "concept": "中性灰阶，无主题倾向",
+   "translation": "用作未选主题时的中立外观；导出与预览一致",
+   "palette": {
+    "bg": "#E8E8E6",
+    "surface": "#D8D8D5",
+    "ink": "#2A2A28",
+    "inkMid": "#6E6E6A",
+    "inkFaint": "#A8A8A4",
+    "accent": "#5A5A58",
+    "accent2": "#3C3C3A",
+    "accent3": "#8A8A86"
+   },
+   "type": {
+    "display": "\"Segoe UI\", \"Microsoft YaHei\", system-ui, sans-serif",
+    "body": "\"Segoe UI\", \"Microsoft YaHei\", system-ui, sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 78,
+    "labelSize": 12,
+    "tracking": 2.0,
+    "displayWeight": 400
+   },
+   "treatment": {
+    "texture": "none"
+   }
+  },
+  "wh_soft": {
+   "id": "wh_soft",
+   "name": "白塑料",
+   "subtitle": "SOFT HARDWARE",
+   "concept": "一台 2003 年的白色设备。哑光白面板，唯一的颜色是一颗淡紫指示灯。白色底上色块用描边而不是填充 —— 填充在浅底上会显得笨重廉价，1px 描边才精确、有设备感。",
+   "translation": "Clip → 1px 描边的分区（不填色）；频谱 → 细柱，峰值淡紫；波形 → 发丝线；音符 → 空心圆环，踩下的一格中心点实心。",
+   "signature": "led",
+   "palette": {
+    "bg": "#F5F5F3",
+    "surface": "#EAEAE8",
+    "ink": "#1B1B1D",
+    "inkMid": "#6A6A6E",
+    "inkFaint": "#ABABAF",
+    "accent": "#B29BE6",
+    "accent2": "#E85A9E",
+    "accent3": "#8FA8C8",
+    "data": "#9B85D8",
+    "data2": "#E07BB0",
+    "data3": "#B8C4D4"
+   },
+   "type": {
+    "display": "\"Bahnschrift Light\", \"Bahnschrift\", \"Segoe UI\", sans-serif",
+    "body": "\"Bahnschrift Light\", \"Segoe UI\", sans-serif",
+    "mono": "\"Lucida Console\", monospace",
+    "displaySize": 58,
+    "labelSize": 10,
+    "tracking": 5.0,
+    "displayWeight": 300
+   },
+   "treatment": {
+    "texture": "matte",
+    "clip": "outline",
+    "spectrum": "thinbar",
+    "wave": "hairline",
+    "notes": "ring",
+    "frame": "none",
+    "labels": "engraved",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.67,
+    "headerH": 150,
+    "footerH": 62,
+    "gap": 34,
+    "pad": 96
+   }
+  },
+  "chrome_freak": {
+   "id": "chrome_freak",
+   "name": "异形铬",
+   "subtitle": "CHROME FREAK",
+   "concept": "地下时装 lookbook 的排版。超粗窄体出血切边，荧光朱红只出现一次，是画面唯一的红。色块是带斜切角的厚板 —— 唯一非正交的几何。",
+   "translation": "Clip → 斜切厚板（实心黑）；频谱 → 硬边柱；波形 → 斜线段；音符 → 十字针尖。",
+   "signature": "cropmark",
+   "palette": {
+    "bg": "#E8E8E6",
+    "surface": "#DCDCDA",
+    "ink": "#101114",
+    "inkMid": "#52555A",
+    "inkFaint": "#9A9DA2",
+    "accent": "#FF3B1F",
+    "accent2": "#1A1C20",
+    "accent3": "#C0C2C0",
+    "data": "#E03A1E",
+    "data2": "#2A2C30",
+    "data3": "#9A9DA2"
+   },
+   "type": {
+    "display": "\"Impact\", \"Arial Black\", sans-serif",
+    "body": "\"Arial Black\", \"Segoe UI\", sans-serif",
+    "mono": "\"Lucida Console\", monospace",
+    "displaySize": 120,
+    "labelSize": 9,
+    "tracking": -1.5,
+    "displayWeight": 900
+   },
+   "treatment": {
+    "texture": "none",
+    "clip": "slab",
+    "spectrum": "bars",
+    "wave": "slash",
+    "notes": "pin",
+    "frame": "cropmark",
+    "labels": "cropmark",
+    "titles": "bleed"
+   },
+   "layout": {
+    "mainRatio": 0.62,
+    "headerH": 130,
+    "footerH": 58,
+    "gap": 28,
+    "pad": 72
+   }
+  },
+  "nuclear": {
+   "id": "nuclear",
+   "name": "核警示",
+   "subtitle": "NUCLEAR",
+   "concept": "警示黄的几何逻辑：中心 + 三等分。不画辐射标志本身，只借它的构图。色块是模板喷涂的断续边 —— 漆从镂空处漏过去，边缘不连续。",
+   "translation": "Clip → 断续喷涂边；频谱 → 仪表弧；波形 → 示波器；音符 → 警示斜条圆点。",
+   "signature": "stencil",
+   "palette": {
+    "bg": "#1E1E1C",
+    "surface": "#2A2A26",
+    "ink": "#EDE8D8",
+    "inkMid": "#9A9484",
+    "inkFaint": "#5E5A50",
+    "accent": "#D4C21A",
+    "accent2": "#A8341C",
+    "accent3": "#4A5A3A",
+    "data": "#C8B616",
+    "data2": "#A8341C",
+    "data3": "#5A6A48"
+   },
+   "type": {
+    "display": "\"Bahnschrift SemiBold\", \"Bahnschrift\", sans-serif",
+    "body": "\"Bahnschrift Light\", \"Segoe UI\", sans-serif",
+    "mono": "\"Consolas\", monospace",
+    "displaySize": 70,
+    "labelSize": 11,
+    "tracking": 4.0,
+    "displayWeight": 600
+   },
+   "treatment": {
+    "texture": "hazard",
+    "clip": "stencil",
+    "spectrum": "gauge",
+    "wave": "scope",
+    "notes": "hazard",
+    "frame": "stencil",
+    "labels": "zone",
+    "titles": "left"
+   },
+   "layout": {
+    "mainRatio": 0.66,
+    "headerH": 148,
+    "footerH": 64,
+    "gap": 32,
+    "pad": 96
+   }
+  }
+ },
+ "order": [
+  "default",
+  "sumi",
+  "blueprint",
+  "longexposure",
+  "construct",
+  "tape",
+  "staratlas",
+  "weave",
+  "risograph",
+  "wh_soft",
+  "chrome_freak",
+  "nuclear"
+ ]
+}

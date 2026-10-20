@@ -1,0 +1,121 @@
+/* 模态框（导出面板）
+   由 preview/gui_v2_template.html 拆出（G0-2）
+   —— 只搬移，未改任何选择器 */
+
+/* ============================================================
+   模态框（导出面板）
+   ============================================================ */
+.modal {
+  position: fixed; inset: 0; z-index: 500;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(6, 9, 13, .72);
+  backdrop-filter: blur(3px);
+}
+.modal.on { display: flex; }
+.mCard {
+  width: 620px; max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 60px); overflow: auto;
+  background: var(--bg1);
+  border: 1px solid var(--line3);
+  border-radius: 8px;
+  padding: 22px 24px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.7);
+}
+.mCard h2 {
+  margin: 0 0 6px; font-size: 15px; font-weight: 600;
+  color: var(--fg0); letter-spacing: .3px;
+}
+.mCard .hint {
+  font-size: 11.5px; color: var(--fg2);
+  margin-bottom: 18px; line-height: 1.6;
+}
+.mGrid {
+  display: grid; grid-template-columns: 84px 1fr;
+  gap: 11px 14px; align-items: center;
+}
+.mGrid > label {
+  font-size: 11.5px; color: var(--fg2); text-align: right;
+}
+.mRow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mRow input[type=text], .mRow input[type=number], .mRow select {
+  background: var(--bg2); border: 1px solid var(--line2);
+  color: var(--fg0); border-radius: 4px;
+  padding: 6px 9px; font-size: 12px; outline: none;
+  font-family: inherit;
+}
+.mRow input[type=text] { flex: 1; min-width: 200px; }
+.mRow input:focus, .mRow select:focus { border-color: var(--acc); }
+.mUnit { font-size: 11px; color: var(--fg2); }
+.mUnit b { color: var(--fg0); font-weight: 600; }
+.mCheck {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px; color: var(--fg0); cursor: pointer;
+}
+.mActions {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 20px; padding-top: 16px;
+  border-top: 1px solid var(--line2);
+}
+.mActions .spacer { flex: 1; }
+
+/* 进度条 */
+.mBar {
+  height: 6px; border-radius: 3px; overflow: hidden;
+  background: var(--bg3); border: 1px solid var(--line2);
+}
+.mBar i {
+  display: block; height: 100%; width: 0;
+  background: var(--acc); transition: width .25s;
+}
+.mProgText {
+  display: flex; align-items: center;
+  font-size: 11.5px; color: var(--fg1); margin-top: 7px;
+}
+.mProgText .spacer { flex: 1; }
+.mMsg {
+  font-size: 11px; color: var(--fg2); margin-top: 4px;
+  min-height: 14px; font-family: Consolas, monospace;
+}
+.mResult {
+  margin-top: 14px; padding: 11px 13px;
+  background: rgba(78,168,222,.08);
+  border: 1px solid rgba(78,168,222,.3);
+  border-radius: 5px; font-size: 11.5px;
+  color: var(--fg0); line-height: 1.7; word-break: break-all;
+}
+.mResult a { color: var(--acc); text-decoration: none; }
+.mResult a:hover { text-decoration: underline; }
+.mErr {
+  margin-top: 14px; padding: 11px 13px;
+  background: rgba(224,110,110,.09);
+  border: 1px solid rgba(224,110,110,.35);
+  border-radius: 5px; font-size: 11.5px;
+  color: #f0a8a8; line-height: 1.7;
+}
+
+
+/* ---- 快捷键面板（G5） ---- */
+.keysGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  margin: 16px 0 6px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.keysGroup { }
+.keysGroupTitle {
+  font-size: 10px; letter-spacing: 1.5px; color: var(--fg2);
+  margin-bottom: 6px; text-transform: uppercase;
+}
+.keysRow {
+  display: flex; align-items: baseline; gap: 8px;
+  font-size: 11.5px; line-height: 1.9;
+}
+.keysRow kbd {
+  font-family: Consolas, monospace; font-size: 10.5px;
+  background: var(--bg3); border: 1px solid var(--line3);
+  border-radius: 3px; padding: 1px 5px; color: var(--fg1);
+  white-space: nowrap;
+}
+.keysRow span { color: var(--fg2); }

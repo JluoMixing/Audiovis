@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>FL Visualizer · 渲染页</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #000; }
+  #stage { display: block; }
+</style>
+</head>
+<body>
+<canvas id="stage"></canvas>
+<script>
+/* ============================================================
+   渲染页
+   ------------------------------------------------------------
+   本页由 src/cli.py 生成：注入数据、主题与全部组件代码。
+   渲染脚本（capture.mjs）通过 window.__renderFrame(n) 逐帧调用。
+
+   与预览台的区别：
+     · 无 DOM 卡片，只有一块离屏画布
+     · 布局由 __layout 决定（阶段 C 会改为可配置）
+     · 时间由帧号换算，保证确定性
+   ============================================================ */
+
+const DATA = __DATA__;
+const DIRECTIONS = __DIRECTIONS__;
+window.__THEME__ = DIRECTIONS.directions[__THEMEKEY__];
+window.__THEME_KEY__ = __THEMEKEY__;
+
+/*__SCRIPT__*/
+
+/* ---- 输出布局 ----
+   由渲染管线注入：capture_v2.mjs 会用 GUI 导出的 layout 覆盖它。
+   每项 { id, x, y, w, h, 柔化, 隐藏文字, 样式 }，
+   与 GUI 属性面板一一对应。
+   这里的默认值只在未注入时兜底。 */
+window.__layout = [
+  { id: 'playlist', x: 40,   y: 60,  w: 1200, h: 960 },
+  { id: 'stepper',  x: 1270, y: 60,  w: 610,  h: 320 },
+  { id: 'spectrum', x: 1270, y: 400, w: 610,  h: 300 },
+  { id: 'waveform', x: 1270, y: 720, w: 610,  h: 300 },
+];
+
+/* 供渲染管线注入布局（避免把大段 JSON 拼进 evaluate 表达式） */
+window.__setLayout = function (layout) {
+  window.__layout = layout || [];
+  return window.__layout.length;
+};
+
+/* ---- 离屏渲染入口 ---- */
+window.__renderFrame = function (frameIndex) {
+  const sec = frameIndex / window.__FPS__;
+  CUR = sec;
+
+  const W = window.__WIDTH__, H = window.__HEIGHT__;
+  const cv = document.createElement('canvas');
+  cv.width = W; cv.height = H;
+  const g = cv.getContext('2d');
+
+  /* 与预览**共用**同一处绘制实现（core/paint.js）。
+     此前这里是自己一套：整帧只画一次底板、不支持文字、不支持逐组件柔化，
+     导致导出与预览不一致（所见非所得）。 */
+  绘制布局(g, window.__layout, { w: W, h: H, 背景: true });
+
+  return cv;
+};
+</script>
+</body>
+</html>

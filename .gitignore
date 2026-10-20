@@ -1,0 +1,84 @@
+# ============================================================
+# Audiovis · Git 忽略规则
+# ============================================================
+
+# ---- 构建产物（启动时自动重新生成）----
+# 界面产物：由 preview/build_gui.py 从 preview/gui/ 生成
+preview/gui_prototype.html
+preview/gui_legacy.html
+preview/gui_v2_template.html
+
+# ---- 第三方 vendored 依赖（体积大，可复现获取）----
+# 精确版本与来源见 docs/VENDOR_VERSIONS.md
+research/vendor/PyFLP/
+research/vendor/construct/
+research/vendor/construct-typing/
+research/vendor/fastenum/
+research/vendor/flpdiff-windows-x64.exe
+
+# ---- 用户原始工程素材（绝不入库，绝不修改）----
+*.flp
+*.mp3
+*.wav
+*.aiff
+*.flac
+*.ogg
+*.m4a
+!docs/**/*.example.flp
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+
+# ---- 测试与工具缓存 ----
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---- 渲染产物（体积大，可重新生成）----
+out/
+renders/
+*.mp4
+*.mov
+*.mkv
+frame_cache/
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
+
+# ---- 测试用浏览器 profile ----
+# 注意：Edge 会在项目目录建临时 profile。
+# 曾因拼写错误（.testtml 而非 .testtmp）导致 724 个缓存文件被误提交，
+# 故这里把两个变体都列上。
+.testtmp/
+.testtml/
+.appdata/
+scoped_dir*/
+
+# ---- 分析缓存（可重新计算）----
+preview/.cache/
+
+# ---- 打包产物 ----
+bundles/
+*.spec.bak
+
+# ---- 临时文件 ----
+*.tmp
+*.log
+*.tsv

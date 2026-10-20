@@ -1,0 +1,24 @@
+{
+ "imageio_ffmpeg": {
+  "路径": "imageio-ffmpeg",
+  "可用": true,
+  "文件": "C:\\Users\\Laoser\\AppData\\Local\\Temp\\phaseA_encode\\path1_imageio.mp4",
+  "大小MB": 0.02,
+  "耗时秒": 1.51,
+  "每帧ms": 16.8,
+  "编码器": "libx264",
+  "可解码": true,
+  "时长秒": ""
+ },
+ "opencv": {
+  "路径": "opencv",
+  "可用": true,
+  "文件": "C:\\Users\\Laoser\\AppData\\Local\\Temp\\phaseA_encode\\path2_opencv.mp4",
+  "大小MB": 0.35,
+  "耗时秒": 1.21,
+  "每帧ms": 13.5,
+  "编码器": "mp4v (MPEG-4 Part 2)",
+  "可解码": true,
+  "时长秒": ""
+ }
+}

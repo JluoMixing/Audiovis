@@ -1,0 +1,75 @@
+{
+ "硬件加速API": "Hardware acceleration methods:\r\ncuda\r\nvaapi\r\ndxva2\r\nqsv\r\nd3d11va\r\nd3d12va",
+ "编码器结果": [
+  {
+   "编码器": "h264_nvenc",
+   "说明": "NVIDIA NVENC",
+   "可用": false,
+   "错误": "BrokenPipeError: [Errno 32] Broken pipe"
+  },
+  {
+   "编码器": "hevc_nvenc",
+   "说明": "NVIDIA NVENC (HEVC)",
+   "可用": false,
+   "错误": "BrokenPipeError: [Errno 32] Broken pipe"
+  },
+  {
+   "编码器": "h264_qsv",
+   "说明": "Intel Quick Sync",
+   "可用": false,
+   "错误": "BrokenPipeError: [Errno 32] Broken pipe"
+  },
+  {
+   "编码器": "hevc_qsv",
+   "说明": "Intel QSV (HEVC)",
+   "可用": false,
+   "错误": "BrokenPipeError: [Errno 32] Broken pipe"
+  },
+  {
+   "编码器": "h264_amf",
+   "说明": "AMD AMF",
+   "可用": true,
+   "每帧ms": 14.83,
+   "大小KB": 24.7
+  },
+  {
+   "编码器": "hevc_amf",
+   "说明": "AMD AMF (HEVC)",
+   "可用": true,
+   "每帧ms": 10.16,
+   "大小KB": 19.1
+  },
+  {
+   "编码器": "h264_vaapi",
+   "说明": "VAAPI (Linux)",
+   "可用": false,
+   "错误": "BrokenPipeError: [Errno 32] Broken pipe"
+  },
+  {
+   "编码器": "h264_mf",
+   "说明": "Media Foundation",
+   "可用": true,
+   "每帧ms": 14.1,
+   "大小KB": 175.7
+  },
+  {
+   "编码器": "libx264",
+   "说明": "x264 软件编码",
+   "可用": true,
+   "每帧ms": 16.48,
+   "大小KB": 31.0
+  },
+  {
+   "编码器": "libx265",
+   "说明": "x265 软件编码",
+   "可用": true,
+   "每帧ms": 36.2,
+   "大小KB": 9.7
+  }
+ ],
+ "可用硬件编码器": [
+  "h264_amf",
+  "hevc_amf",
+  "h264_mf"
+ ]
+}

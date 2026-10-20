@@ -1,0 +1,162 @@
+[
+ {
+  "工程": "amapiano",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 115,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 296,
+  "Pattern放置": 0,
+  "通道放置": 296,
+  "轨道数": 500,
+  "有内容轨道": 20,
+  "通道数": 69,
+  "Pattern数": 19
+ },
+ {
+  "工程": "drill",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 133,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 225,
+  "Pattern放置": 0,
+  "通道放置": 225,
+  "轨道数": 500,
+  "有内容轨道": 15,
+  "通道数": 56,
+  "Pattern数": 15
+ },
+ {
+  "工程": "guitar_birth",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 97.192,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 209,
+  "Pattern放置": 0,
+  "通道放置": 209,
+  "轨道数": 500,
+  "有内容轨道": 15,
+  "通道数": 57,
+  "Pattern数": 12
+ },
+ {
+  "工程": "half_fire_half_sea",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 157,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 190,
+  "Pattern放置": 0,
+  "通道放置": 190,
+  "轨道数": 500,
+  "有内容轨道": 21,
+  "通道数": 43,
+  "Pattern数": 29
+ },
+ {
+  "工程": "island",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 155,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 493,
+  "Pattern放置": 0,
+  "通道放置": 493,
+  "轨道数": 500,
+  "有内容轨道": 23,
+  "通道数": 146,
+  "Pattern数": 30
+ },
+ {
+  "工程": "jungle",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 164,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 174,
+  "Pattern放置": 0,
+  "通道放置": 174,
+  "轨道数": 500,
+  "有内容轨道": 15,
+  "通道数": 84,
+  "Pattern数": 12
+ },
+ {
+  "工程": "rage",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 145,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 280,
+  "Pattern放置": 0,
+  "通道放置": 280,
+  "轨道数": 500,
+  "有内容轨道": 19,
+  "通道数": 50,
+  "Pattern数": 20
+ },
+ {
+  "工程": "nujabes",
+  "状态": "成功",
+  "ppq": 96,
+  "tempo": 95.246,
+  "版本": {
+   "_type": "FLVersion",
+   "build": 3750,
+   "major": 21,
+   "minor": 1,
+   "patch": 1
+  },
+  "placement总数": 211,
+  "Pattern放置": 0,
+  "通道放置": 211,
+  "轨道数": 500,
+  "有内容轨道": 17,
+  "通道数": 64,
+  "Pattern数": 21
+ }
+]

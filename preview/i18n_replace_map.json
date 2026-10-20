@@ -1,0 +1,1856 @@
+[
+ {
+  "key": "ui.html.fl_visualizer_gui",
+  "text": "FL Visualizer · GUI 设计预览 v2",
+  "file": "index.html",
+  "line": 5
+ },
+ {
+  "key": "ui.html.t49063",
+  "text": "导入工程",
+  "file": "index.html",
+  "line": 25
+ },
+ {
+  "key": "ui.html.fl_studio",
+  "text": "选择 FL Studio 工程文件与对应的混音音频。两者都导入后才能进入编辑。",
+  "file": "index.html",
+  "line": 26
+ },
+ {
+  "key": "ui.html.flp",
+  "text": "FLP 工程",
+  "file": "index.html",
+  "line": 31
+ },
+ {
+  "key": "ui.html.t39425",
+  "text": "点击选择或拖入",
+  "file": "index.html",
+  "line": 32
+ },
+ {
+  "key": "ui.html.t39425",
+  "text": "点击选择或拖入",
+  "file": "index.html",
+  "line": 37
+ },
+ {
+  "key": "ui.html.t73843",
+  "text": "混音音频",
+  "file": "index.html",
+  "line": 36
+ },
+ {
+  "key": "ui.html.t73843",
+  "text": "混音音频",
+  "file": "app.js",
+  "line": 431
+ },
+ {
+  "key": "ui.html.t73843",
+  "text": "混音音频",
+  "file": "app.js",
+  "line": 441
+ },
+ {
+  "key": "ui.html.t10660",
+  "text": "等待导入…",
+  "file": "index.html",
+  "line": 47
+ },
+ {
+  "key": "ui.html.t10660",
+  "text": "等待导入…",
+  "file": "app.js",
+  "line": 481
+ },
+ {
+  "key": "ui.html.t7678",
+  "text": "使用示例工程",
+  "file": "index.html",
+  "line": 49
+ },
+ {
+  "key": "ui.html.t85138",
+  "text": "进入编辑器",
+  "file": "index.html",
+  "line": 50
+ },
+ {
+  "key": "ui.html.t85138",
+  "text": "进入编辑器",
+  "file": "app.js",
+  "line": 471
+ },
+ {
+  "key": "ui.html.t5235",
+  "text": "画布",
+  "file": "index.html",
+  "line": 71
+ },
+ {
+  "key": "ui.html.t5235",
+  "text": "画布",
+  "file": "index.html",
+  "line": 326
+ },
+ {
+  "key": "ui.html.t5235",
+  "text": "画布",
+  "file": "index.html",
+  "line": 368
+ },
+ {
+  "key": "ui.html.t75908",
+  "text": "帧率",
+  "file": "index.html",
+  "line": 78
+ },
+ {
+  "key": "ui.html.t75908",
+  "text": "帧率",
+  "file": "index.html",
+  "line": 369
+ },
+ {
+  "key": "ui.html.t23764",
+  "text": "资源",
+  "file": "index.html",
+  "line": 90
+ },
+ {
+  "key": "ui.html.t51702",
+  "text": "主题 · 模板 · 组件",
+  "file": "index.html",
+  "line": 90
+ },
+ {
+  "key": "ui.html.t49237",
+  "text": "主题库",
+  "file": "index.html",
+  "line": 93
+ },
+ {
+  "key": "ui.html.t69521",
+  "text": "模板库",
+  "file": "index.html",
+  "line": 96
+ },
+ {
+  "key": "ui.html.t54313",
+  "text": "组件库",
+  "file": "index.html",
+  "line": 99
+ },
+ {
+  "key": "ui.html.t1158",
+  "text": "0 个组件",
+  "file": "index.html",
+  "line": 109
+ },
+ {
+  "key": "ui.html.t70621",
+  "text": "画布为空",
+  "file": "index.html",
+  "line": 124
+ },
+ {
+  "key": "ui.html.t97090",
+  "text": "从左侧拖拽组件到这里，或套用模板库中的布局",
+  "file": "index.html",
+  "line": 125
+ },
+ {
+  "key": "ui.html.t48944",
+  "text": "静帧预览 · 第",
+  "file": "index.html",
+  "line": 127
+ },
+ {
+  "key": "ui.html.t17623",
+  "text": "秒",
+  "file": "index.html",
+  "line": 128
+ },
+ {
+  "key": "ui.html.t45586",
+  "text": "属性",
+  "file": "index.html",
+  "line": 140
+ },
+ {
+  "key": "ui.html.t57332",
+  "text": "未选中",
+  "file": "index.html",
+  "line": 140
+ },
+ {
+  "key": "ui.html.t57332",
+  "text": "未选中",
+  "file": "app.js",
+  "line": 1716
+ },
+ {
+  "key": "ui.html.t78558",
+  "text": "在画布中选中一个组件",
+  "file": "index.html",
+  "line": 142
+ },
+ {
+  "key": "ui.html.t74056",
+  "text": "以编辑它的位置与尺寸",
+  "file": "index.html",
+  "line": 143
+ },
+ {
+  "key": "ui.html.t73236",
+  "text": "文字",
+  "file": "index.html",
+  "line": 149
+ },
+ {
+  "key": "ui.html.t73236",
+  "text": "文字",
+  "file": "app.js",
+  "line": 64
+ },
+ {
+  "key": "ui.html.t88507",
+  "text": "可用变量：",
+  "file": "index.html",
+  "line": 156
+ },
+ {
+  "key": "ui.html.t85225",
+  "text": "字体",
+  "file": "index.html",
+  "line": 162
+ },
+ {
+  "key": "ui.html.t85225",
+  "text": "字体",
+  "file": "index.html",
+  "line": 165
+ },
+ {
+  "key": "ui.html.t85225",
+  "text": "字体",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t85225",
+  "text": "字体",
+  "file": "app.js",
+  "line": 1908
+ },
+ {
+  "key": "ui.html.t68979",
+  "text": "角色",
+  "file": "index.html",
+  "line": 173
+ },
+ {
+  "key": "ui.html.t68979",
+  "text": "角色",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t68979",
+  "text": "角色",
+  "file": "app.js",
+  "line": 1909
+ },
+ {
+  "key": "ui.html.display",
+  "text": "标题（display）",
+  "file": "index.html",
+  "line": 178
+ },
+ {
+  "key": "ui.html.body",
+  "text": "正文（body）",
+  "file": "index.html",
+  "line": 179
+ },
+ {
+  "key": "ui.html.mono",
+  "text": "等宽（mono）",
+  "file": "index.html",
+  "line": 180
+ },
+ {
+  "key": "ui.html.t52500",
+  "text": "字号",
+  "file": "index.html",
+  "line": 184
+ },
+ {
+  "key": "ui.html.t52500",
+  "text": "字号",
+  "file": "app.js",
+  "line": 1891
+ },
+ {
+  "key": "ui.html.t52500",
+  "text": "字号",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t52500",
+  "text": "字号",
+  "file": "app.js",
+  "line": 1910
+ },
+ {
+  "key": "ui.html.t96420",
+  "text": "字重",
+  "file": "index.html",
+  "line": 189
+ },
+ {
+  "key": "ui.html.t96420",
+  "text": "字重",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t96420",
+  "text": "字重",
+  "file": "app.js",
+  "line": 1911
+ },
+ {
+  "key": "ui.html.t59465",
+  "text": "跟随主题",
+  "file": "index.html",
+  "line": 194
+ },
+ {
+  "key": "ui.html.t51744",
+  "text": "细体 300",
+  "file": "index.html",
+  "line": 195
+ },
+ {
+  "key": "ui.html.t52054",
+  "text": "常规 400",
+  "file": "index.html",
+  "line": 196
+ },
+ {
+  "key": "ui.html.t26510",
+  "text": "中粗 600",
+  "file": "index.html",
+  "line": 197
+ },
+ {
+  "key": "ui.html.t60481",
+  "text": "粗体 700",
+  "file": "index.html",
+  "line": 198
+ },
+ {
+  "key": "ui.html.t4800",
+  "text": "特粗 900",
+  "file": "index.html",
+  "line": 199
+ },
+ {
+  "key": "ui.html.t39729",
+  "text": "对齐",
+  "file": "index.html",
+  "line": 203
+ },
+ {
+  "key": "ui.html.t39729",
+  "text": "对齐",
+  "file": "app.js",
+  "line": 1924
+ },
+ {
+  "key": "ui.html.t43091",
+  "text": "左",
+  "file": "index.html",
+  "line": 205
+ },
+ {
+  "key": "ui.html.t46664",
+  "text": "中",
+  "file": "index.html",
+  "line": 206
+ },
+ {
+  "key": "ui.html.t41546",
+  "text": "右",
+  "file": "index.html",
+  "line": 207
+ },
+ {
+  "key": "ui.html.t34185",
+  "text": "行距",
+  "file": "index.html",
+  "line": 211
+ },
+ {
+  "key": "ui.html.t34185",
+  "text": "行距",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t34185",
+  "text": "行距",
+  "file": "app.js",
+  "line": 1912
+ },
+ {
+  "key": "ui.html.t34182",
+  "text": "字距",
+  "file": "index.html",
+  "line": 215
+ },
+ {
+  "key": "ui.html.t34182",
+  "text": "字距",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t34182",
+  "text": "字距",
+  "file": "app.js",
+  "line": 1913
+ },
+ {
+  "key": "ui.html.t95307",
+  "text": "颜色",
+  "file": "index.html",
+  "line": 220
+ },
+ {
+  "key": "ui.html.t95307",
+  "text": "颜色",
+  "file": "app.js",
+  "line": 1914
+ },
+ {
+  "key": "ui.html.ink",
+  "text": "主色（ink）",
+  "file": "index.html",
+  "line": 225
+ },
+ {
+  "key": "ui.html.inkmid",
+  "text": "次色（inkMid）",
+  "file": "index.html",
+  "line": 226
+ },
+ {
+  "key": "ui.html.inkfaint",
+  "text": "弱色（inkFaint）",
+  "file": "index.html",
+  "line": 227
+ },
+ {
+  "key": "ui.html.accent",
+  "text": "强调（accent）",
+  "file": "index.html",
+  "line": 228
+ },
+ {
+  "key": "ui.html.accent2",
+  "text": "强调二（accent2）",
+  "file": "index.html",
+  "line": 229
+ },
+ {
+  "key": "ui.html.t18668",
+  "text": "旋转",
+  "file": "index.html",
+  "line": 233
+ },
+ {
+  "key": "ui.html.t18668",
+  "text": "旋转",
+  "file": "app.js",
+  "line": 1899
+ },
+ {
+  "key": "ui.html.t18668",
+  "text": "旋转",
+  "file": "app.js",
+  "line": 1933
+ },
+ {
+  "key": "ui.html.t38493",
+  "text": "全大写",
+  "file": "index.html",
+  "line": 243
+ },
+ {
+  "key": "ui.html.t97691",
+  "text": "倾斜",
+  "file": "index.html",
+  "line": 246
+ },
+ {
+  "key": "ui.html.t97691",
+  "text": "倾斜",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.html.t97691",
+  "text": "倾斜",
+  "file": "app.js",
+  "line": 1916
+ },
+ {
+  "key": "ui.html.t97570",
+  "text": "底板",
+  "file": "index.html",
+  "line": 249
+ },
+ {
+  "key": "ui.html.t24027",
+  "text": "固定换行",
+  "file": "index.html",
+  "line": 253
+ },
+ {
+  "key": "ui.html.t22276",
+  "text": "几何",
+  "file": "index.html",
+  "line": 259
+ },
+ {
+  "key": "ui.html.t13688",
+  "text": "宽",
+  "file": "index.html",
+  "line": 263
+ },
+ {
+  "key": "ui.html.t41721",
+  "text": "高",
+  "file": "index.html",
+  "line": 264
+ },
+ {
+  "key": "ui.html.t53783",
+  "text": "比例",
+  "file": "index.html",
+  "line": 265
+ },
+ {
+  "key": "ui.html.t3673",
+  "text": "外观",
+  "file": "index.html",
+  "line": 268
+ },
+ {
+  "key": "ui.html.t32714",
+  "text": "柔化",
+  "file": "index.html",
+  "line": 271
+ },
+ {
+  "key": "ui.html.t80094",
+  "text": "0 = 硬边卡片 · 越大越融入画布",
+  "file": "index.html",
+  "line": 277
+ },
+ {
+  "key": "ui.html.t32269",
+  "text": "隐藏组件内的文字",
+  "file": "index.html",
+  "line": 283
+ },
+ {
+  "key": "ui.html.t98102",
+  "text": "窗口",
+  "file": "index.html",
+  "line": 289
+ },
+ {
+  "key": "ui.html.t67400",
+  "text": "2 小节",
+  "file": "index.html",
+  "line": 292
+ },
+ {
+  "key": "ui.html.t78777",
+  "text": "越大看得越远 · 越小越聚焦",
+  "file": "index.html",
+  "line": 295
+ },
+ {
+  "key": "ui.html.t77360",
+  "text": "层序",
+  "file": "index.html",
+  "line": 300
+ },
+ {
+  "key": "ui.html.t74968",
+  "text": "层级",
+  "file": "index.html",
+  "line": 302
+ },
+ {
+  "key": "ui.html.t56692",
+  "text": "上移一层",
+  "file": "index.html",
+  "line": 304
+ },
+ {
+  "key": "ui.html.t20421",
+  "text": "下移一层",
+  "file": "index.html",
+  "line": 305
+ },
+ {
+  "key": "ui.html.t82278",
+  "text": "可见性",
+  "file": "index.html",
+  "line": 309
+ },
+ {
+  "key": "ui.html.t59115",
+  "text": "隐藏",
+  "file": "index.html",
+  "line": 312
+ },
+ {
+  "key": "ui.html.t59115",
+  "text": "隐藏",
+  "file": "app.js",
+  "line": 2422
+ },
+ {
+  "key": "ui.html.t31329",
+  "text": "删除",
+  "file": "index.html",
+  "line": 313
+ },
+ {
+  "key": "ui.html.t31329",
+  "text": "删除",
+  "file": "app.js",
+  "line": 2431
+ },
+ {
+  "key": "ui.html.t61503",
+  "text": "图层",
+  "file": "index.html",
+  "line": 318
+ },
+ {
+  "key": "ui.html.t93564",
+  "text": "组件",
+  "file": "index.html",
+  "line": 327
+ },
+ {
+  "key": "ui.html.t12358",
+  "text": "主题",
+  "file": "index.html",
+  "line": 328
+ },
+ {
+  "key": "ui.html.t54203",
+  "text": "静帧",
+  "file": "index.html",
+  "line": 329
+ },
+ {
+  "key": "ui.html.t34191",
+  "text": "保存布局",
+  "file": "index.html",
+  "line": 332
+ },
+ {
+  "key": "ui.html.t59036",
+  "text": "读取布局",
+  "file": "index.html",
+  "line": 333
+ },
+ {
+  "key": "ui.html.t3556",
+  "text": "导出视频",
+  "file": "index.html",
+  "line": 334
+ },
+ {
+  "key": "ui.html.t3556",
+  "text": "导出视频",
+  "file": "index.html",
+  "line": 346
+ },
+ {
+  "key": "ui.html.t47351",
+  "text": "渲染在本地进行，可随时取消。参数留空则用已验证的最优默认值。",
+  "file": "index.html",
+  "line": 347
+ },
+ {
+  "key": "ui.html.t45324",
+  "text": "输出路径",
+  "file": "index.html",
+  "line": 350
+ },
+ {
+  "key": "ui.html.t69891",
+  "text": "选择…",
+  "file": "index.html",
+  "line": 353
+ },
+ {
+  "key": "ui.html.t13692",
+  "text": "起点",
+  "file": "index.html",
+  "line": 356
+ },
+ {
+  "key": "ui.html.t66889",
+  "text": "秒 （从工程的该时刻开始）",
+  "file": "index.html",
+  "line": 359
+ },
+ {
+  "key": "ui.html.t28911",
+  "text": "时长",
+  "file": "index.html",
+  "line": 362
+ },
+ {
+  "key": "ui.html.t28911",
+  "text": "时长",
+  "file": "app.js",
+  "line": 577
+ },
+ {
+  "key": "ui.html.t62136",
+  "text": "秒 （工程全长",
+  "file": "index.html",
+  "line": 365
+ },
+ {
+  "key": "ui.html.t55091",
+  "text": "秒）",
+  "file": "index.html",
+  "line": 365
+ },
+ {
+  "key": "ui.html.fps",
+  "text": "fps （由顶栏决定）",
+  "file": "index.html",
+  "line": 370
+ },
+ {
+  "key": "ui.html.t46392",
+  "text": "码率",
+  "file": "index.html",
+  "line": 372
+ },
+ {
+  "key": "ui.html.t3612",
+  "text": "如 12M",
+  "file": "index.html",
+  "line": 376
+ },
+ {
+  "key": "ui.html.t20361",
+  "text": "编码预设",
+  "file": "index.html",
+  "line": 379
+ },
+ {
+  "key": "ui.html.ultrafast",
+  "text": "ultrafast（最快，画质略低）",
+  "file": "index.html",
+  "line": 382
+ },
+ {
+  "key": "ui.html.medium",
+  "text": "medium（默认，画质/速度均衡）",
+  "file": "index.html",
+  "line": 386
+ },
+ {
+  "key": "ui.html.veryslow",
+  "text": "veryslow（最慢，画质最好）",
+  "file": "index.html",
+  "line": 388
+ },
+ {
+  "key": "ui.html.t62537",
+  "text": "并行度",
+  "file": "index.html",
+  "line": 392
+ },
+ {
+  "key": "ui.html.t56189",
+  "text": "留空 = 自动（实测最优 4 路）",
+  "file": "index.html",
+  "line": 396
+ },
+ {
+  "key": "ui.html.t29372",
+  "text": "音轨",
+  "file": "index.html",
+  "line": 399
+ },
+ {
+  "key": "ui.html.t14758",
+  "text": "混入音频",
+  "file": "index.html",
+  "line": 401
+ },
+ {
+  "key": "ui.html.t94098",
+  "text": "准备",
+  "file": "index.html",
+  "line": 409
+ },
+ {
+  "key": "ui.html.t69475",
+  "text": "取消",
+  "file": "index.html",
+  "line": 420
+ },
+ {
+  "key": "ui.html.t47325",
+  "text": "关闭",
+  "file": "index.html",
+  "line": 422
+ },
+ {
+  "key": "ui.html.t58511",
+  "text": "开始导出",
+  "file": "index.html",
+  "line": 423
+ },
+ {
+  "key": "ui.html.t58511",
+  "text": "开始导出",
+  "file": "app.js",
+  "line": 2220
+ },
+ {
+  "key": "ui.html.t58511",
+  "text": "开始导出",
+  "file": "app.js",
+  "line": 2322
+ },
+ {
+  "key": "ui.attr.t88700",
+  "text": "适应窗口",
+  "file": "index.html",
+  "line": 114
+ },
+ {
+  "key": "ui.attr.t88700",
+  "text": "适应窗口",
+  "file": "app.js",
+  "line": 2397
+ },
+ {
+  "key": "ui.attr.t64154",
+  "text": "决定用主题的哪套字体；「跟随主题」时生效",
+  "file": "index.html",
+  "line": 174
+ },
+ {
+  "key": "ui.attr.t36481",
+  "text": "开启后框由你决定，文本在框内换行；关闭则框自适应文本",
+  "file": "index.html",
+  "line": 252
+ },
+ {
+  "key": "ui.attr.t30842",
+  "text": "关闭后组件内自带的数值、刻度、单位等文字会被隐藏，画面更干净",
+  "file": "index.html",
+  "line": 282
+ },
+ {
+  "key": "ui.attr.mp4",
+  "text": "输出 mp4 的完整路径",
+  "file": "index.html",
+  "line": 352
+ },
+ {
+  "key": "ui.attr.crf",
+  "text": "留空 = 质量优先（CRF 18）",
+  "file": "index.html",
+  "line": 374
+ },
+ {
+  "key": "ui.attr.t19703",
+  "text": "自动",
+  "file": "index.html",
+  "line": 395
+ },
+ {
+  "key": "ui.js.t18200",
+  "text": "中性灰阶 · 未套用主题",
+  "file": "app.js",
+  "line": 53
+ },
+ {
+  "key": "ui.js.t11644",
+  "text": "内容",
+  "file": "app.js",
+  "line": 63
+ },
+ {
+  "key": "ui.js.t11644",
+  "text": "内容",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.js.t11644",
+  "text": "内容",
+  "file": "app.js",
+  "line": 1907
+ },
+ {
+  "key": "ui.js.t54852",
+  "text": "钢琴卷帘",
+  "file": "app.js",
+  "line": 65
+ },
+ {
+  "key": "ui.js.t31428",
+  "text": "音级轮",
+  "file": "app.js",
+  "line": 66
+ },
+ {
+  "key": "ui.js.t28502",
+  "text": "结构",
+  "file": "app.js",
+  "line": 68
+ },
+ {
+  "key": "ui.js.t89960",
+  "text": "主时间轴",
+  "file": "app.js",
+  "line": 69
+ },
+ {
+  "key": "ui.js.t81655",
+  "text": "步进器",
+  "file": "app.js",
+  "line": 70
+ },
+ {
+  "key": "ui.js.t71570",
+  "text": "音频",
+  "file": "app.js",
+  "line": 72
+ },
+ {
+  "key": "ui.js.t61393",
+  "text": "频谱",
+  "file": "app.js",
+  "line": 73
+ },
+ {
+  "key": "ui.js.t91430",
+  "text": "波形",
+  "file": "app.js",
+  "line": 74
+ },
+ {
+  "key": "ui.js.t91681",
+  "text": "声场",
+  "file": "app.js",
+  "line": 75
+ },
+ {
+  "key": "ui.js.t68098",
+  "text": "响度",
+  "file": "app.js",
+  "line": 76
+ },
+ {
+  "key": "ui.js.t64522",
+  "text": "明亮度",
+  "file": "app.js",
+  "line": 77
+ },
+ {
+  "key": "ui.js.t95572",
+  "text": "瞬态",
+  "file": "app.js",
+  "line": 78
+ },
+ {
+  "key": "ui.js.t9989",
+  "text": "信息",
+  "file": "app.js",
+  "line": 80
+ },
+ {
+  "key": "ui.js.t71775",
+  "text": "走带读数",
+  "file": "app.js",
+  "line": 81
+ },
+ {
+  "key": "ui.js.t11560",
+  "text": "临时多选",
+  "file": "app.js",
+  "line": 112
+ },
+ {
+  "key": "ui.js.t60229",
+  "text": "选中",
+  "file": "app.js",
+  "line": 118
+ },
+ {
+  "key": "ui.js.t97724",
+  "text": "变更前压栈",
+  "file": "app.js",
+  "line": 163
+ },
+ {
+  "key": "ui.js.t58778",
+  "text": "变更前",
+  "file": "app.js",
+  "line": 164
+ },
+ {
+  "key": "ui.js.t4616",
+  "text": "漏记某个字段",
+  "file": "app.js",
+  "line": 168
+ },
+ {
+  "key": "ui.js.t19691",
+  "text": "没有可撤销的操作",
+  "file": "app.js",
+  "line": 215
+ },
+ {
+  "key": "ui.js.t48421",
+  "text": "已撤销",
+  "file": "app.js",
+  "line": 219
+ },
+ {
+  "key": "ui.js.t47100",
+  "text": "没有可重做的操作",
+  "file": "app.js",
+  "line": 224
+ },
+ {
+  "key": "ui.js.t51745",
+  "text": "已重做",
+  "file": "app.js",
+  "line": 228
+ },
+ {
+  "key": "ui.js.t68862",
+  "text": "已复制",
+  "file": "app.js",
+  "line": 246
+ },
+ {
+  "key": "ui.js.t68862",
+  "text": "已复制",
+  "file": "app.js",
+  "line": 302
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 246
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 271
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 302
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 313
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 1004
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 1489
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 1533
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 2188
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 2387
+ },
+ {
+  "key": "ui.js.t86525",
+  "text": "个组件",
+  "file": "app.js",
+  "line": 2429
+ },
+ {
+  "key": "ui.js.t75483",
+  "text": "剪贴板为空",
+  "file": "app.js",
+  "line": 251
+ },
+ {
+  "key": "ui.js.t92805",
+  "text": "已粘贴",
+  "file": "app.js",
+  "line": 271
+ },
+ {
+  "key": "ui.js.t34326",
+  "text": "已剪切",
+  "file": "app.js",
+  "line": 278
+ },
+ {
+  "key": "ui.js.t80892",
+  "text": "已删除",
+  "file": "app.js",
+  "line": 313
+ },
+ {
+  "key": "ui.js.t3180",
+  "text": "已置顶",
+  "file": "app.js",
+  "line": 338
+ },
+ {
+  "key": "ui.js.t3180",
+  "text": "已置顶",
+  "file": "app.js",
+  "line": 1991
+ },
+ {
+  "key": "ui.js.t48291",
+  "text": "已置底",
+  "file": "app.js",
+  "line": 349
+ },
+ {
+  "key": "ui.js.t96394",
+  "text": "运行中",
+  "file": "app.js",
+  "line": 385
+ },
+ {
+  "key": "ui.js.t81412",
+  "text": "选择失败：",
+  "file": "app.js",
+  "line": 394
+ },
+ {
+  "key": "ui.js.flp",
+  "text": ".flp · 导入完成",
+  "file": "app.js",
+  "line": 411
+ },
+ {
+  "key": "ui.js.flp",
+  "text": ".flp · 导入完成",
+  "file": "app.js",
+  "line": 437
+ },
+ {
+  "key": "ui.js.t99281",
+  "text": "混音 ·",
+  "file": "app.js",
+  "line": 429
+ },
+ {
+  "key": "ui.js.t99281",
+  "text": "混音 ·",
+  "file": "app.js",
+  "line": 440
+ },
+ {
+  "key": "ui.js.t1129",
+  "text": "已载入示例工程",
+  "file": "app.js",
+  "line": 443
+ },
+ {
+  "key": "ui.js.t8973",
+  "text": "解析并进入编辑器",
+  "file": "app.js",
+  "line": 471
+ },
+ {
+  "key": "ui.js.t80941",
+  "text": "工程已就绪",
+  "file": "app.js",
+  "line": 473
+ },
+ {
+  "key": "ui.js.t78818",
+  "text": "可以开始解析",
+  "file": "app.js",
+  "line": 474
+ },
+ {
+  "key": "ui.js.t60174",
+  "text": "还需选择音频",
+  "file": "app.js",
+  "line": 475
+ },
+ {
+  "key": "ui.js.flp_2",
+  "text": "还需选择 FLP",
+  "file": "app.js",
+  "line": 476
+ },
+ {
+  "key": "ui.js.t89884",
+  "text": "等待选择文件…",
+  "file": "app.js",
+  "line": 476
+ },
+ {
+  "key": "ui.js.t68723",
+  "text": "可以进入编辑器",
+  "file": "app.js",
+  "line": 480
+ },
+ {
+  "key": "ui.js.t31444",
+  "text": "还需导入音频",
+  "file": "app.js",
+  "line": 481
+ },
+ {
+  "key": "ui.js.flp_3",
+  "text": "还需导入 FLP",
+  "file": "app.js",
+  "line": 481
+ },
+ {
+  "key": "ui.js.t13309",
+  "text": "导入失败：",
+  "file": "app.js",
+  "line": 506
+ },
+ {
+  "key": "ui.js.t13309",
+  "text": "导入失败：",
+  "file": "app.js",
+  "line": 516
+ },
+ {
+  "key": "ui.js.t13309",
+  "text": "导入失败：",
+  "file": "app.js",
+  "line": 517
+ },
+ {
+  "key": "ui.js.t152",
+  "text": "未知",
+  "file": "app.js",
+  "line": 506
+ },
+ {
+  "key": "ui.js.t7603",
+  "text": "完成",
+  "file": "app.js",
+  "line": 509
+ },
+ {
+  "key": "ui.js.t7603",
+  "text": "完成",
+  "file": "app.js",
+  "line": 2302
+ },
+ {
+  "key": "ui.js.t7603",
+  "text": "完成",
+  "file": "app.js",
+  "line": 2304
+ },
+ {
+  "key": "ui.js.t9038",
+  "text": "解析完成，正在载入…",
+  "file": "app.js",
+  "line": 510
+ },
+ {
+  "key": "ui.js.t87135",
+  "text": "导入出错：",
+  "file": "app.js",
+  "line": 521
+ },
+ {
+  "key": "ui.js.t16404",
+  "text": "纳入",
+  "file": "app.js",
+  "line": 537
+ },
+ {
+  "key": "ui.js.t56867",
+  "text": "音频命中",
+  "file": "app.js",
+  "line": 539
+ },
+ {
+  "key": "ui.js.t35732",
+  "text": "按关键词",
+  "file": "app.js",
+  "line": 551
+ },
+ {
+  "key": "ui.js.t35732",
+  "text": "按关键词",
+  "file": "app.js",
+  "line": 551
+ },
+ {
+  "key": "ui.js.t85342",
+  "text": "通道名",
+  "file": "app.js",
+  "line": 551
+ },
+ {
+  "key": "ui.js.t15166",
+  "text": "按音高",
+  "file": "app.js",
+  "line": 552
+ },
+ {
+  "key": "ui.js.t15166",
+  "text": "按音高",
+  "file": "app.js",
+  "line": 552
+ },
+ {
+  "key": "ui.js.t79765",
+  "text": "音高",
+  "file": "app.js",
+  "line": 552
+ },
+ {
+  "key": "ui.js.t52561",
+  "text": "按节奏",
+  "file": "app.js",
+  "line": 553
+ },
+ {
+  "key": "ui.js.t52561",
+  "text": "按节奏",
+  "file": "app.js",
+  "line": 553
+ },
+ {
+  "key": "ui.js.t90330",
+  "text": "节奏",
+  "file": "app.js",
+  "line": 553
+ },
+ {
+  "key": "ui.js.t75224",
+  "text": "按后缀",
+  "file": "app.js",
+  "line": 554
+ },
+ {
+  "key": "ui.js.t75224",
+  "text": "按后缀",
+  "file": "app.js",
+  "line": 554
+ },
+ {
+  "key": "ui.js.t67360",
+  "text": "当前工程：<b>",
+  "file": "app.js",
+  "line": 574
+ },
+ {
+  "key": "ui.js.br",
+  "text": "<br>画布中的组件为<b>真实渲染</b> —— 所见即最终视频的画面。",
+  "file": "app.js",
+  "line": 578
+ },
+ {
+  "key": "ui.js.t79667",
+  "text": "渲染序号",
+  "file": "app.js",
+  "line": 616
+ },
+ {
+  "key": "ui.js.t79667",
+  "text": "渲染序号",
+  "file": "app.js",
+  "line": 619
+ },
+ {
+  "key": "ui.js.t31325",
+  "text": "件",
+  "file": "app.js",
+  "line": 729
+ },
+ {
+  "key": "ui.js.t63412",
+  "text": "已清空画布",
+  "file": "app.js",
+  "line": 817
+ },
+ {
+  "key": "ui.js.t5125",
+  "text": "已套用模板：",
+  "file": "app.js",
+  "line": 842
+ },
+ {
+  "key": "ui.js.t39202",
+  "text": "已添加：",
+  "file": "app.js",
+  "line": 1130
+ },
+ {
+  "key": "ui.js.t90518",
+  "text": "添加",
+  "file": "app.js",
+  "line": 1151
+ },
+ {
+  "key": "ui.js.uid",
+  "text": "窗口 uid 无效：",
+  "file": "app.js",
+  "line": 1205
+ },
+ {
+  "key": "ui.js.t93462",
+  "text": "可用：",
+  "file": "app.js",
+  "line": 1205
+ },
+ {
+  "key": "ui.js.t54523",
+  "text": "!框选.移动过",
+  "file": "app.js",
+  "line": 1333
+ },
+ {
+  "key": "ui.js.t13396",
+  "text": "已选中",
+  "file": "app.js",
+  "line": 1489
+ },
+ {
+  "key": "ui.js.t44742",
+  "text": "已全选",
+  "file": "app.js",
+  "line": 1533
+ },
+ {
+  "key": "ui.js.t44742",
+  "text": "已全选",
+  "file": "app.js",
+  "line": 2387
+ },
+ {
+  "key": "ui.js.t10854",
+  "text": "主时间轴跨度",
+  "file": "app.js",
+  "line": 1704
+ },
+ {
+  "key": "ui.js.t22621",
+  "text": "步进器滚动窗",
+  "file": "app.js",
+  "line": 1705
+ },
+ {
+  "key": "ui.js.t56768",
+  "text": "卷帘滚动窗",
+  "file": "app.js",
+  "line": 1706
+ },
+ {
+  "key": "ui.js.t28892",
+  "text": "频谱滚动窗",
+  "file": "app.js",
+  "line": 1707
+ },
+ {
+  "key": "ui.js.t24671",
+  "text": "波形滚动窗",
+  "file": "app.js",
+  "line": 1708
+ },
+ {
+  "key": "ui.js.t36198",
+  "text": "关闭后组件内自带的数值、刻度、单位等文字会被隐藏",
+  "file": "app.js",
+  "line": 1739
+ },
+ {
+  "key": "ui.js.t88122",
+  "text": "文字组件没有内嵌文字",
+  "file": "app.js",
+  "line": 1740
+ },
+ {
+  "key": "ui.js.t13245",
+  "text": "小节",
+  "file": "app.js",
+  "line": 1752
+ },
+ {
+  "key": "ui.js.t13245",
+  "text": "小节",
+  "file": "app.js",
+  "line": 1948
+ },
+ {
+  "key": "ui.js.t84099",
+  "text": "框自适应文本；开启「固定换行」后可手动调整",
+  "file": "app.js",
+  "line": 1873
+ },
+ {
+  "key": "ui.js.t26360",
+  "text": "大写",
+  "file": "app.js",
+  "line": 1898
+ },
+ {
+  "key": "ui.js.t26360",
+  "text": "大写",
+  "file": "app.js",
+  "line": 1915
+ },
+ {
+  "key": "ui.js.t29269",
+  "text": "自动换行",
+  "file": "app.js",
+  "line": 1899
+ },
+ {
+  "key": "ui.js.t29269",
+  "text": "自动换行",
+  "file": "app.js",
+  "line": 1918
+ },
+ {
+  "key": "ui.js.t64453",
+  "text": "背景",
+  "file": "app.js",
+  "line": 1917
+ },
+ {
+  "key": "ui.js.t77622",
+  "text": "已隐藏组件内文字",
+  "file": "app.js",
+  "line": 1970
+ },
+ {
+  "key": "ui.js.t3772",
+  "text": "已显示组件内文字",
+  "file": "app.js",
+  "line": 1970
+ },
+ {
+  "key": "ui.js.t11740",
+  "text": "已在最上层",
+  "file": "app.js",
+  "line": 1992
+ },
+ {
+  "key": "ui.js.t15600",
+  "text": "已下移",
+  "file": "app.js",
+  "line": 1998
+ },
+ {
+  "key": "ui.js.t7948",
+  "text": "已在最下层",
+  "file": "app.js",
+  "line": 1999
+ },
+ {
+  "key": "ui.js.t51517",
+  "text": "已隐藏",
+  "file": "app.js",
+  "line": 2005
+ },
+ {
+  "key": "ui.js.t51517",
+  "text": "已隐藏",
+  "file": "app.js",
+  "line": 2429
+ },
+ {
+  "key": "ui.js.t15113",
+  "text": "已显示",
+  "file": "app.js",
+  "line": 2005
+ },
+ {
+  "key": "ui.js.div",
+  "text": "画布中还没有组件</div>",
+  "file": "app.js",
+  "line": 2042
+ },
+ {
+  "key": "ui.js.t31767",
+  "text": "画布：",
+  "file": "app.js",
+  "line": 2074
+ },
+ {
+  "key": "ui.js.t86767",
+  "text": "帧率：",
+  "file": "app.js",
+  "line": 2082
+ },
+ {
+  "key": "ui.js.f12",
+  "text": "离线原型：布局已输出到控制台（F12 查看）",
+  "file": "app.js",
+  "line": 2159
+ },
+ {
+  "key": "ui.js.t28513",
+  "text": "保存为（不含扩展名）",
+  "file": "app.js",
+  "line": 2162
+ },
+ {
+  "key": "ui.js.t65570",
+  "text": "已保存：",
+  "file": "app.js",
+  "line": 2166
+ },
+ {
+  "key": "ui.js.t64699",
+  "text": "保存失败：",
+  "file": "app.js",
+  "line": 2167
+ },
+ {
+  "key": "ui.js.python_app_server_py",
+  "text": "离线原型不支持读取，请用 python app_server.py 启动",
+  "file": "app.js",
+  "line": 2172
+ },
+ {
+  "key": "ui.js.t3902",
+  "text": "还没有保存过布局",
+  "file": "app.js",
+  "line": 2177
+ },
+ {
+  "key": "ui.js.t34217",
+  "text": "读取哪个布局？\\n\\n",
+  "file": "app.js",
+  "line": 2178
+ },
+ {
+  "key": "ui.js.t9133",
+  "text": "读取失败",
+  "file": "app.js",
+  "line": 2185
+ },
+ {
+  "key": "ui.js.t18827",
+  "text": "已读取布局：",
+  "file": "app.js",
+  "line": 2188
+ },
+ {
+  "key": "ui.js.t10035",
+  "text": "画布为空，请先添加组件",
+  "file": "app.js",
+  "line": 2191
+ },
+ {
+  "key": "ui.js.html",
+  "text": "当前是离线原型（直接打开 HTML 文件），没有本地服务，无法真正导出。",
+  "file": "app.js",
+  "line": 2226
+ },
+ {
+  "key": "ui.js.python_app_server_py_2",
+  "text": "请用 python app_server.py 启动后再试。",
+  "file": "app.js",
+  "line": 2227
+ },
+ {
+  "key": "ui.js.t51538",
+  "text": "正在取消…",
+  "file": "app.js",
+  "line": 2247
+ },
+ {
+  "key": "ui.js.t19401",
+  "text": "时长必须大于 0",
+  "file": "app.js",
+  "line": 2254
+ },
+ {
+  "key": "ui.js.t87987",
+  "text": "导出中…",
+  "file": "app.js",
+  "line": 2284
+ },
+ {
+  "key": "ui.js.t75267",
+  "text": "服务未受理",
+  "file": "app.js",
+  "line": 2291
+ },
+ {
+  "key": "ui.js.t9011",
+  "text": "用时",
+  "file": "app.js",
+  "line": 2307
+ },
+ {
+  "key": "ui.js.t68672",
+  "text": "已导出：<b>",
+  "file": "app.js",
+  "line": 2309
+ },
+ {
+  "key": "ui.js.download_style_color",
+  "text": "\" download style=\"color:var(--acc)\">下载</a>",
+  "file": "app.js",
+  "line": 2311
+ },
+ {
+  "key": "ui.js.t46641",
+  "text": "导出完成",
+  "file": "app.js",
+  "line": 2312
+ },
+ {
+  "key": "ui.js.t13842",
+  "text": "任务",
+  "file": "app.js",
+  "line": 2314
+ },
+ {
+  "key": "ui.js.t25731",
+  "text": "导出失败：",
+  "file": "app.js",
+  "line": 2318
+ },
+ {
+  "key": "ui.js.t87723",
+  "text": "导出失败",
+  "file": "app.js",
+  "line": 2319
+ },
+ {
+  "key": "ui.js.t47281",
+  "text": "粘贴",
+  "file": "app.js",
+  "line": 2384
+ },
+ {
+  "key": "ui.js.t47281",
+  "text": "粘贴",
+  "file": "app.js",
+  "line": 2417
+ },
+ {
+  "key": "ui.js.t43399",
+  "text": "全选",
+  "file": "app.js",
+  "line": 2385
+ },
+ {
+  "key": "ui.js.t606",
+  "text": "撤销",
+  "file": "app.js",
+  "line": 2390
+ },
+ {
+  "key": "ui.js.t88582",
+  "text": "重做",
+  "file": "app.js",
+  "line": 2393
+ },
+ {
+  "key": "ui.js.t26025",
+  "text": "实际大小",
+  "file": "app.js",
+  "line": 2398
+ },
+ {
+  "key": "ui.js.t92136",
+  "text": "个）",
+  "file": "app.js",
+  "line": 2411
+ },
+ {
+  "key": "ui.js.t176",
+  "text": "复制",
+  "file": "app.js",
+  "line": 2414
+ },
+ {
+  "key": "ui.js.t77732",
+  "text": "剪切",
+  "file": "app.js",
+  "line": 2415
+ },
+ {
+  "key": "ui.js.t87774",
+  "text": "原地复制",
+  "file": "app.js",
+  "line": 2416
+ },
+ {
+  "key": "ui.js.t39305",
+  "text": "置顶",
+  "file": "app.js",
+  "line": 2419
+ },
+ {
+  "key": "ui.js.t48142",
+  "text": "置底",
+  "file": "app.js",
+  "line": 2420
+ }
+]
