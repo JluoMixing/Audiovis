@@ -2311,6 +2311,7 @@ $('exGo').onclick = async () => {
   $('exErr').style.display = 'none';
   $('exResult').style.display = 'none';
   $('exProg').style.display = 'block';
+  $('exProg').classList.remove('done');
 
   try {
     const r = await 调接口('/api/render', 参数);
@@ -2330,12 +2331,16 @@ $('exGo').onclick = async () => {
       $('exStage').textContent = '完成';
       $('exMsg').textContent = '';
       const 产 = t.产物 || {};
-      const 用时 = 产.耗时 ? ('　用时 ' + 产.耗时 + 's') : '';
+      const 用时 = 产.耗时 ? ('（用时 ' + 产.耗时 + 's）') : '';
+      /* 文件已经**直接写到用户选的路径**了，不需要再点下载。
+         之前那个「下载」链接是「服务端产出、浏览器取回」的遗留，
+         点它只会让人以为成品在别处。 */
+      const 路径 = 产.视频 || 参数.输出 || '';
       $('exResult').style.display = 'block';
-      $('exResult').innerHTML = '已导出：<b>' + (产.视频 || '') + '</b>' + 用时 +
-        '　<a href="/api/video?id=' + r.id +
-        '" download style="color:var(--acc)">下载</a>';
-      toast('导出完成');
+      $('exResult').innerHTML =
+        译('export.saved') + '：<b class="mPath">' + 路径 + '</b>' + 用时;
+      $('exProg').classList.add('done');
+      toast(译('msg.exportSaved'));
     } else {
       throw new Error(t.错误 || ('任务' + t.状态));
     }

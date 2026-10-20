@@ -1,5 +1,5 @@
 /* 语言包（由 tools/i18n_* 生成，勿手改）
-   中文 363 条 / 英文 363 条 */
+   中文 366 条 / 英文 366 条 */
 
 注册语言('zh', {
 "app.title": "Audiovis",
@@ -361,10 +361,13 @@
 "top.landscape": "横屏",
 "top.orientation": "方向",
 "top.portrait": "竖屏",
-"win.minimize": "最小化",
+"win.close": "关闭",
 "win.maximize": "最大化",
+"win.minimize": "最小化",
 "win.restore": "还原",
-"win.close": "关闭"
+"export.slowHint": "渲染需要一些时间，通常 3-4 分钟，请耐心等待 —— 期间可以取消。",
+"export.saved": "导出成功，文件已保存到",
+"msg.exportSaved": "导出成功"
 });
 
 注册语言('en', {
@@ -727,8 +730,11 @@
 "top.landscape": "Landscape",
 "top.orientation": "Orientation",
 "top.portrait": "Portrait",
-"win.minimize": "Minimize",
+"win.close": "Close",
 "win.maximize": "Maximize",
+"win.minimize": "Minimize",
 "win.restore": "Restore",
-"win.close": "Close"
+"export.slowHint": "Rendering takes a few minutes (usually 3–4). Please wait — you can cancel anytime.",
+"export.saved": "Export complete. Saved to",
+"msg.exportSaved": "Export complete"
 });

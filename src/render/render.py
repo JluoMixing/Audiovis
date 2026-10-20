@@ -21,6 +21,17 @@ import json
 import pathlib
 import shutil
 import subprocess
+import sys
+
+# Windows 上启动控制台子进程时**不弹窗口**。
+# ------------------------------------------------------------
+# 打包版是 console=False 的 GUI 进程，它启动的每个控制台子进程
+# （node.exe / ffmpeg.exe）默认会新开一个黑色窗口 —— 用户明确不能接受。
+#
+# 用 CREATE_NO_WINDOW（0x08000000）而不是 DETACHED_PROCESS：
+# 后者会让子进程完全脱离，capture_output 的管道可能失效。
+_无窗口 = getattr(subprocess, "CREATE_NO_WINDOW", 0) \
+    if sys.platform == "win32" else 0
 import sys as _sys
 import sys
 import tempfile
@@ -141,7 +152,8 @@ def _渲染单片(脚本, 浏览器, 页面路径, 帧目录, 总帧数, 帧率,
     if 主题:
         命令 += ["--theme", str(主题)]
 
-    进程 = subprocess.run(命令, capture_output=True, timeout=超时秒)
+    进程 = subprocess.run(命令, capture_output=True, timeout=超时秒,
+                          creationflags=_无窗口)
     if 进程.returncode != 0:
         错误 = 进程.stderr.decode("utf-8", "replace")[-800:]
         raise 渲染错误("帧渲染失败（退出码 %d）：\n%s" % (进程.returncode, 错误))
@@ -336,7 +348,8 @@ def 渲染视频(
 
     编码命令 += ["-movflags", "+faststart", str(输出路径)]
 
-    编码进程 = subprocess.run(编码命令, capture_output=True, timeout=超时秒)
+    编码进程 = subprocess.run(编码命令, capture_output=True,
+                            timeout=超时秒, creationflags=_无窗口)
     编码耗时 = time.perf_counter() - 编码起
 
     if 编码进程.returncode != 0:
