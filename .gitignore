@@ -82,3 +82,16 @@ bundles/
 *.tmp
 *.log
 *.tsv
+
+# ---- 品牌素材（用户提供的原始文件，体积大且非源码）----
+# 含 SVG 源、参考 PNG（1.1 MB）与说明。
+# 生成的图标已提交到 assets/icon/ 与 preview/gui/，故原始素材不必入库。
+Audiovis_brand_assets_for_DSH/
+
+# ---- 图标生成的中间产物 ----
+# 保留最终成品（audiovis.ico / audiovis_icon_*.png）与矢量源
+# （audiovis_emblem.svg，可重新生成图标）。
+# 忽略预览/对比图与旧图标备份。
+assets/icon/_*.png
+assets/icon/_old/
+

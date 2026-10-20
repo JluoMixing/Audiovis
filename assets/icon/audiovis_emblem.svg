@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <title>Audiovis — app icon emblem</title>
+  <desc>Two overlapping but non-identical rounded forms. Silver monochrome,
+        transparent background. Geometry calibrated against the selected
+        concept reference.</desc>
+
+  <defs>
+    <linearGradient id="formA" x1="0.10" y1="0.04" x2="0.88" y2="0.96">
+      <stop offset="0"    stop-color="#FFFFFF"/>
+      <stop offset="0.40" stop-color="#F4F5F7"/>
+      <stop offset="0.75" stop-color="#DCDEE3"/>
+      <stop offset="1"    stop-color="#BFC2CA"/>
+    </linearGradient>
+
+    <linearGradient id="formB" x1="0.98" y1="0.20" x2="0.52" y2="0.98">
+      <stop offset="0"    stop-color="#5E6068"/>
+      <stop offset="0.42" stop-color="#7E8088"/>
+      <stop offset="0.78" stop-color="#A4A6AE"/>
+      <stop offset="1"    stop-color="#C6C8CF"/>
+    </linearGradient>
+
+    <!-- 重叠暗部：垂直方向的柔和渐变，模拟"压住"的阴影 -->
+    <linearGradient id="overlap" x1="0" y1="0.22" x2="0.15" y2="0.80">
+      <stop offset="0"    stop-color="#2E3036" stop-opacity="0.90"/>
+      <stop offset="0.40" stop-color="#3E4047" stop-opacity="0.72"/>
+      <stop offset="0.75" stop-color="#50525A" stop-opacity="0.34"/>
+      <stop offset="1"    stop-color="#60626A" stop-opacity="0.06"/>
+    </linearGradient>
+
+    <linearGradient id="edgeLight" x1="0" y1="0.2" x2="0.35" y2="0.9">
+      <stop offset="0"   stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#FFFFFF" stop-opacity="0.32"/>
+      <stop offset="1"   stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- 上块形状（用于裁剪重叠区） -->
+    <clipPath id="clipA"><path d="M 624.0 79.0 C 543.5 89.39, 463.0 117.97, 372.0 161.27 C 270.5 213.23, 191.4 282.51, 169.0 369.11 C 158.5 429.73, 158.5 563.96, 169.0 622.85 C 183.0 685.2, 253.0 676.54, 333.5 666.15 C 417.5 657.49, 494.5 652.29, 529.5 647.1 C 564.5 607.26, 589.0 512.0, 606.5 425.4 C 618.4 338.8, 624.0 200.24, 624.0 79.0 Z"/></clipPath>
+    <!-- 下块形状（用于裁剪重叠区） -->
+    <clipPath id="clipB"><path d="M 571.5 364.78 C 624.0 286.84, 722.0 267.79, 795.5 293.77 C 842.4 312.82, 862.0 364.78, 862.0 442.72 L 862.0 830.69 C 862.0 893.04, 839.6 932.01, 792.0 938.07 C 737.4 922.48, 671.6 891.31, 615.6 860.13 C 569.4 834.15, 548.4 810.77, 552.6 764.87 C 558.2 667.88, 562.4 512.0, 571.5 364.78 Z"/></clipPath>
+  </defs>
+
+  <!-- 1) 上块（亮） -->
+  <path d="M 624.0 79.0 C 543.5 89.39, 463.0 117.97, 372.0 161.27 C 270.5 213.23, 191.4 282.51, 169.0 369.11 C 158.5 429.73, 158.5 563.96, 169.0 622.85 C 183.0 685.2, 253.0 676.54, 333.5 666.15 C 417.5 657.49, 494.5 652.29, 529.5 647.1 C 564.5 607.26, 589.0 512.0, 606.5 425.4 C 618.4 338.8, 624.0 200.24, 624.0 79.0 Z" fill="url(#formA)"/>
+
+  <!-- 2) 重叠暗部：下块 ∩ 上块 的交集 -->
+  <g clip-path="url(#clipA)">
+    <g clip-path="url(#clipB)">
+      <rect x="0" y="0" width="1024" height="1024" fill="url(#overlap)"/>
+    </g>
+  </g>
+
+  <!-- 3) 下块（暗）：画在暗部之后，让它的亮边压在上块上 -->
+  <path d="M 571.5 364.78 C 624.0 286.84, 722.0 267.79, 795.5 293.77 C 842.4 312.82, 862.0 364.78, 862.0 442.72 L 862.0 830.69 C 862.0 893.04, 839.6 932.01, 792.0 938.07 C 737.4 922.48, 671.6 891.31, 615.6 860.13 C 569.4 834.15, 548.4 810.77, 552.6 764.87 C 558.2 667.88, 562.4 512.0, 571.5 364.78 Z" fill="url(#formB)" opacity="0.97"/>
+
+  <!-- 4) 上块左缘高光 -->
+  <path d="M 169.0 373.44
+           C 159.9 432.33, 159.9 560.5, 169.0 617.65"
+        fill="none" stroke="url(#edgeLight)" stroke-width="4.9"
+        stroke-linecap="round"/>
+
+  <!-- 5) 下块左缘高光：它与上块交界处的一条细亮线 -->
+  <path d="M 572.2 377.77
+           C 563.1 494.68, 558.2 641.9, 554.0 761.41"
+        fill="none" stroke="#FFFFFF" stroke-opacity="0.34"
+        stroke-width="3.5" stroke-linecap="round"/>
+</svg>
