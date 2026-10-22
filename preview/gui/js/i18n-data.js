@@ -1,5 +1,5 @@
 /* 语言包（由 tools/i18n_* 生成，勿手改）
-   中文 366 条 / 英文 366 条 */
+   中文 368 条 / 英文 368 条 */
 
 注册语言('zh', {
 "app.title": "Audiovis",
@@ -112,8 +112,10 @@
 "export.presetUltrafast": "ultrafast（最快，画质略低）",
 "export.presetVeryslow": "veryslow（最慢，画质最好）",
 "export.ready": "准备",
+"export.saved": "导出成功，文件已保存到",
 "export.seconds": "秒",
 "export.secondsClose": "秒）",
+"export.slowHint": "渲染需要一些时间，通常 3-4 分钟，请耐心等待 —— 期间可以取消。",
 "export.start": "起点",
 "export.startBtn": "开始导出",
 "export.startHint": "秒 （从工程的该时刻开始）",
@@ -184,6 +186,7 @@
 "msg.elapsed": "用时",
 "msg.exportDone": "导出完成",
 "msg.exportFailed": "导出失败",
+"msg.exportSaved": "导出成功",
 "msg.exported": "已导出：",
 "msg.exportedPrefix": "已导出：<b>",
 "msg.exporting": "导出中…",
@@ -365,9 +368,8 @@
 "win.maximize": "最大化",
 "win.minimize": "最小化",
 "win.restore": "还原",
-"export.slowHint": "渲染需要一些时间，通常 3-4 分钟，请耐心等待 —— 期间可以取消。",
-"export.saved": "导出成功，文件已保存到",
-"msg.exportSaved": "导出成功"
+"common.ok": "确定",
+"common.cancel": "取消"
 });
 
 注册语言('en', {
@@ -481,8 +483,10 @@
 "export.presetUltrafast": "ultrafast (fastest, lower quality)",
 "export.presetVeryslow": "veryslow (slowest, best quality)",
 "export.ready": "Preparing",
+"export.saved": "Export complete. Saved to",
 "export.seconds": "s",
 "export.secondsClose": "s)",
+"export.slowHint": "Rendering takes a few minutes (usually 3–4). Please wait — you can cancel anytime.",
 "export.start": "Start",
 "export.startBtn": "Start export",
 "export.startHint": "seconds (where in the project to begin)",
@@ -553,6 +557,7 @@
 "msg.elapsed": "took",
 "msg.exportDone": "Export complete",
 "msg.exportFailed": "Export failed",
+"msg.exportSaved": "Export complete",
 "msg.exported": "Exported: ",
 "msg.exportedPrefix": "Exported: <b>",
 "msg.exporting": "Exporting…",
@@ -734,7 +739,6 @@
 "win.maximize": "Maximize",
 "win.minimize": "Minimize",
 "win.restore": "Restore",
-"export.slowHint": "Rendering takes a few minutes (usually 3–4). Please wait — you can cancel anytime.",
-"export.saved": "Export complete. Saved to",
-"msg.exportSaved": "Export complete"
+"common.ok": "OK",
+"common.cancel": "Cancel"
 });

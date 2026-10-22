@@ -207,6 +207,63 @@ def 构建空页面():
 用示例启动 = False
 
 
+def 构建工程页面():
+    """用会话里已有的工程 + 分析数据重建页面。
+
+    ## 为什么需要这个
+
+    打开 .flvproj 后要把页面换成本工程的页面，但如果走
+    `构建空页面()`，会同时把 `会话.工程` 覆盖成空工程、
+    并丢掉分析数据 —— 于是页面里 __PROJECT__ 没有时长，
+    组件没有数据可画，导出总长为 0。
+
+    ## 与导入流程的关系
+
+    导入是「解析 → 分析 → 构建页面」，这里省掉前两步，
+    直接用 `会话.分析数据`。`构建页面()` 的参数形状相同。
+
+    ## 数据不全时
+
+    没有已导入工程或没有分析数据时退回空页面 ——
+    宁可显示导入界面，也不要构造一个半残的编辑器。
+    """
+    分析数据 = 会话.分析数据
+    工程 = 会话.工程 or {}
+    if not 工程.get("已导入") or not 分析数据:
+        return 构建空页面()
+
+    载荷 = dict(分析数据)
+    载荷["projectName"] = (载荷.get("projectName")
+                          or 工程.get("name")
+                          or "未命名工程")
+    载荷["previewTime"] = 载荷.get("previewTime", 0) or 0
+
+    方向 = 构建模块.读方向()
+    待恢复 = 会话.待恢复 or {}
+    主题 = 待恢复.get("主题") or 工程.get("主题") or "sumi"
+
+    # 工程信息直接用会话里的（已含 flp/audio/name/duration/projectDuration）
+    页面工程 = dict(工程)
+    页面工程["已导入"] = True
+    # 时长兜底：老版本 .flvproj 可能没存 projectDuration
+    if not 页面工程.get("projectDuration"):
+        页面工程["projectDuration"] = (
+            页面工程.get("duration")
+            or (载荷.get("audio") or {}).get("projectDuration")
+            or (载荷.get("audio") or {}).get("duration")
+            or 0)
+
+    html = 构建模块.构建页面(载荷, 方向, 主题, 工程信息=页面工程,
+                          服务模式=True, 语言=设置模块.生效语言(),
+                          待恢复=会话.待恢复)
+
+    会话.页面 = html
+    # **不要**覆盖 会话.工程 —— 它已经是正确的工程信息
+    会话.工程 = 页面工程
+    会话.记录构建(载荷, 方向)
+    return html
+
+
 def _初始页面():
     """按启动参数决定首屏：空页面（默认）或示例页面（--demo）。"""
     if 用示例启动:
@@ -817,6 +874,28 @@ def _自动保存文件():
     return 目录 / "recovery.json"
 
 
+def _丢弃自动保存():
+    """把当前恢复文件改名保留，而不是删除。
+
+    名固定为 recovery.discarded.json —— 多次丢弃只保留最后一份，
+    不累积。需要时用户可以手工从该文件还原画布。
+    """
+    f = _自动保存文件()
+    if not f.is_file():
+        return
+    备 = f.with_name("recovery.discarded.json")
+    try:
+        if 备.is_file():
+            备.unlink()
+        f.rename(备)
+    except Exception:
+        # 改名失败才退回删除（至少不阻塞用户操作）
+        try:
+            f.unlink(missing_ok=True)
+        except Exception:
+            pass
+
+
 def _写自动保存(body):
     """写恢复文件。内容与工程元数据同形，便于直接还原。"""
     import time
@@ -1289,6 +1368,32 @@ def 跑渲染(ident, 参数):
         起点 = float(参数.get("起点") or 0.0)
         帧率 = int(参数.get("帧率") or 30)
 
+        # 起点 + 时长必须落在工程总长内。
+        # ------------------------------------------------------------
+        # 不 clamp 的话：起点 60 + 时长 120（工程 120 秒）会渲染
+        # 60~180 秒，而 t>120 之后页面已无数据 —— 后 60 秒是同一张
+        # 静止画面，用户看到的是「导出了 120 秒但后半段不动」。
+        #
+        # 前端已经做了 clamp 与提示，这里再拦一次：
+        # /api/render 可被直接调用（cli、脚本、测试），不能只靠界面。
+        总长 = float(默认时长)
+        时长收窄 = None
+        if 总长 > 0:
+            if 起点 < 0:
+                起点 = 0.0
+            if 起点 >= 总长:
+                # app_server 没有 渲染错误 这个类（它定义在 render.py）。
+                # 用 RuntimeError：外层 except BaseException 能捕到，
+                # 用户看到的错误信息也清楚。
+                raise RuntimeError(
+                    "起点 %.2f 秒超出工程长度 %.2f 秒" % (起点, 总长))
+            剩余 = 总长 - 起点
+            if 时长 > 剩余 + 0.01:
+                时长收窄 = (时长, 剩余)
+                时长 = 剩余
+        # 至少一帧，否则 总帧数 会是 0
+        时长 = max(时长, 1.0 / max(1, 帧率))
+
         def 进度回调(已渲, 总):
             p = 0.10 + 0.75 * (已渲 / max(1, 总))
             会话.更新(ident, 进度=round(p, 3), 阶段="渲染帧",
@@ -1443,7 +1548,14 @@ class 处理(BaseHTTPRequestHandler):
         p = self.path.split("?")[0]
         if p in ("/", "/index.html"):
             if 会话.页面 is None:
-                构建空页面()
+                # 有已导入的工程就必须用它重建 ——
+                # 否则打开工程后页面会变成「未导入」的空壳，
+                # 组件没有数据、导出总长为 0（真实 bug）。
+                工 = 会话.工程 or {}
+                if 工.get("已导入") and 会话.分析数据:
+                    构建工程页面()
+                else:
+                    构建空页面()
             elif 会话.需重建():
                 # 模板被改过 —— 用同一份数据重建，避免一直返回旧页
                 try:
@@ -1593,7 +1705,12 @@ class 处理(BaseHTTPRequestHandler):
 
         if p == "/api/autosave/clear":
             try:
-                _自动保存文件().unlink(missing_ok=True)
+                # **不要 unlink** —— 改成改名保留。
+                # 用户点「取消」也会走这里，而自动保存里可能是
+                # 尚未保存进 .flvproj 的最新画布状态。
+                # 真实事故：误点一次就永久丢了 9 个组件的改动。
+                # 只保留最近一份丢弃副本，不会无限累积。
+                _丢弃自动保存()
                 self._发(200, json.dumps({"ok": True}, ensure_ascii=False))
             except Exception as e:
                 self._发(500, json.dumps(

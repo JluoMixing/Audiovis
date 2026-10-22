@@ -177,7 +177,8 @@ function 布局快照(){
              z:p.z, hidden:p.hidden,
              样式: p.样式 ? JSON.parse(JSON.stringify(p.样式)) : null,
              柔化: p.柔化,
-             隐藏文字: p.隐藏文字 };
+             隐藏文字: p.隐藏文字,
+             窗口: p.窗口 };
   }));
 }
 
@@ -204,6 +205,7 @@ function 恢复快照(快照){
     if (d.样式) p.样式 = d.样式;
     if (d.柔化 !== undefined) p.柔化 = d.柔化;
     if (d.隐藏文字 !== undefined) p.隐藏文字 = d.隐藏文字;
+    if (d.窗口 !== undefined && d.窗口 !== null) p.窗口 = d.窗口;
     return p;
   });
   /* uid 序号要跟上，避免新建组件时冲突 */
@@ -1846,7 +1848,31 @@ function 自适应文字框(p){
     m = comp.测量(样式, 0);
   }
 
-  p.w = Math.max(40, m.w);
+  /* 右边界约束：框不能超出画布。
+     ------------------------------------------------------------
+     只按 最大宽比 收窄是不够的 —— 多数主题不设这个值，
+     于是框宽就是文字原宽。displaySize 大的主题（如 chrome_freak 的 120）
+     实测标题宽 2206px > 1920。
+
+     与 src/components/text.js 的缩字号逻辑配套：
+       text.js      画的时候不溢出（把绘制框 clamp 到右边界）
+       这里         存的框尺寸也不溢出
+     只做一处会导致「选中框比画面大」的不一致。 */
+  const 右界 = Math.max(60, 画布.w - Math.max(0, p.x || 0));
+  if (m.w > 右界) {
+    const 底线 = Math.max(8, Math.round(文字实际字号(样式) * 0.3));
+    for (let 轮 = 0; 轮 < 6; 轮++) {
+      const 目标 = Math.max(
+        底线, Math.floor(样式.字号 * (右界 / m.w) * 0.99));
+      if (目标 >= 样式.字号) break;
+      样式.字号 = Math.min(样式.字号 - 1, 目标);
+      m = comp.测量(样式, 0);
+      if (m.w <= 右界) break;
+      if (样式.字号 <= 底线) break;
+    }
+  }
+
+  p.w = Math.max(40, Math.min(m.w, 右界));
   p.h = Math.max(24, m.h);
 }
 
@@ -2163,6 +2189,9 @@ function 套用布局(d){
                 z: c.z || 1, hidden: !!c.hidden };
     if (c.柔化 !== undefined) p.柔化 = c.柔化;
     if (c.隐藏文字 !== undefined) p.隐藏文字 = c.隐藏文字;
+    /* 窗口设置（时间窗/频率窗等）也必须恢复 ——
+       取布局() 存了它，这里不读就等于保存了却丢掉。 */
+    if (c.窗口 !== undefined && c.窗口 !== null) p.窗口 = c.窗口;
     if (c.样式) p.样式 = Object.assign(文字默认样式(), c.样式);
     return p;
   });
@@ -2223,14 +2252,44 @@ $('btnExport').onclick = () => {
      输出路径 / 时长 / 起点 / 帧率 / 分辨率 / 码率 / 预设 / 并行度 / 音频
    分辨率与帧率从顶栏带过来（那是画布级设置），面板里也显示出来。
    ============================================================ */
+/* 导出可用的时间轴总长。
+   ------------------------------------------------------------
+   **不能用音频长度** —— 工程可能比音频长得多
+   （实测 island：音频 80.6s / 工程 165.9s），按音频会截掉后半段。
+   优先取 projectDuration，退回音频长度。 */
+function 导出总长(){
+  const pm = window.__PROJECT__ || {};
+  return (pm.projectDuration || pm.duration ||
+          (DATA.audio && DATA.audio.duration) || 0);
+}
+
+/* 起点变化时，把时长拉到「剩余可用长度」。
+   ------------------------------------------------------------
+   这是用户明确预期的行为：工程 120 秒，起点设 60，
+   应该导出 60~120 共 60 秒，而不是 120 秒（后半段静止）。
+   同时更新输入框的 max，避免用户还能填出超界的值。 */
+function 同步导出时长(强制){
+  const 总长 = 导出总长();
+  if (!(总长 > 0)) return;
+  const 起 = Math.max(0, Math.min(parseFloat($('exStart').value) || 0, 总长));
+  const 剩余 = Math.max(0.1, 总长 - 起);
+  const 当前 = parseFloat($('exDur').value) || 0;
+  if (强制 || !(当前 > 0) || 当前 > 剩余 + 1e-6) {
+    $('exDur').value = 剩余.toFixed(2);
+  }
+  $('exDur').max = 剩余.toFixed(2);
+  $('exStart').max = 总长.toFixed(2);
+}
+
 function 打开导出面板(){
   const pm = window.__PROJECT__ || {};
-  const 时长 = (pm.duration || DATA.audio.duration || 0);
+  const 时长 = 导出总长();
   $('exOut').value = pm.输出默认 ||
     ((pm.name || DATA.projectName || 'visualizer') + '.mp4');
   $('exStart').value = '0';
   $('exDur').value = 时长.toFixed(2);
   $('exTotal').textContent = 时长.toFixed(2);
+  同步导出时长(true);
   $('exFps').textContent = 帧率;
   $('exSize').textContent = 画布.w + '×' + 画布.h;
   $('exBitrate').value = '';
@@ -2252,6 +2311,17 @@ function 打开导出面板(){
     $('exGo').disabled = true;
   }
 }
+
+/* 起点改了就把时长收到剩余长度内 —— 用户改起点多半是想「从这导到结尾」 */
+$('exStart').addEventListener('change', () => 同步导出时长(true));
+$('exStart').addEventListener('input', () => {
+  /* 输入过程中只更新 max，不改用户正在填的时长，避免打断输入 */
+  const 总长 = 导出总长();
+  const 起 = parseFloat($('exStart').value) || 0;
+  if (总长 > 0 && 起 >= 0 && 起 < 总长) {
+    $('exDur').max = Math.max(0.1, 总长 - 起).toFixed(2);
+  }
+});
 
 $('exClose').onclick = () => $('exModal').classList.remove('on');
 $('exModal').onclick = (e) => {
@@ -2276,8 +2346,29 @@ $('exGo').onclick = async () => {
   if (!服务模式) return;
   /* 记住本次参数，下次打开直接带出 */
   保存导出参数();
-  const 时长 = parseFloat($('exDur').value) || 0;
+  /* 时长与起点：clamp 到工程总长内。
+     ------------------------------------------------------------
+     不 clamp 的话，起点 60 + 时长 120 会渲染 60~180 秒，
+     而工程只到 120 秒 —— 后 60 秒全是同一张静止画面（真实 bug）。
+     这里再拦一次，即使服务端 clamp 也先给用户明确提示。 */
+  const 总长 = 导出总长();
+  const 起点 = Math.max(0, parseFloat($('exStart').value) || 0);
+  let 时长 = parseFloat($('exDur').value) || 0;
   if (时长 <= 0) { toast('时长必须大于 0'); return; }
+  if (总长 > 0) {
+    if (起点 >= 总长) {
+      toast('起点超出工程长度（共 ' + 总长.toFixed(1) + ' 秒）');
+      return;
+    }
+    const 剩余 = 总长 - 起点;
+    if (时长 > 剩余 + 0.01) {
+      const 原 = 时长;
+      时长 = Math.max(0.1, Math.round(剩余 * 100) / 100);
+      $('exDur').value = 时长.toFixed(2);
+      toast('时长已按工程长度收窄：' + 原.toFixed(1) + ' → ' +
+            时长.toFixed(1) + ' 秒（起点 ' + 起点.toFixed(1) + ' 秒）');
+    }
+  }
 
   /* 布局 = 画布上所有组件的完整状态，含柔化 / 隐藏文字 / 文字样式。
      逐项列出，不用展开运算符 —— 新增属性容易漏。 */
@@ -2297,7 +2388,7 @@ $('exGo').onclick = async () => {
     画布: { w: 画布.w, h: 画布.h },
     帧率: 帧率,
     时长: 时长,
-    起点: parseFloat($('exStart').value) || 0,
+    起点: 起点,
     输出: $('exOut').value.trim(),
     码率: $('exBitrate').value.trim() || null,
     预设: $('exPreset').value,
@@ -2542,6 +2633,28 @@ function 初始化(){
   应用缩放();
   适应窗口();
   渲染画布();
+
+  /* 从工程文件还原画布。
+     ------------------------------------------------------------
+     window.__RESTORE__ 由服务端在构建页面时注入
+     （preview/build_gui.py 的 构建页面(待恢复=…)）。
+     **必须放在 渲染画布() 之后** —— 套用布局() 依赖 stage 已就绪。
+
+     这个调用曾经漏掉：函数定义了却没人调，
+     导致打开工程只恢复「导入 FLP 后的初始状态」，
+     画布上的组件与主题全部丢失。 */
+  try {
+    if (尝试还原工程()) {
+      /* 刚打开的文件不该显示「未保存」：
+         重置撤销基线，把还原后的状态当作干净起点。 */
+      历史.栈 = [];
+      历史.位置 = -1;
+      记录历史();
+      清除脏();
+    }
+  } catch (e) {
+    console.error('[restore]', e);
+  }
   /* 初始快照，作为撤销的起点 */
 }
 
@@ -2886,7 +2999,7 @@ async function 保存工程(另存为){
 async function 打开工程(){
   if (!服务模式) { toast(译('offline.startFirst')); return; }
 
-  if (未保存 && !confirm(译('proj.confirmDiscard'))) return;
+  if (未保存 && !(await 询问(译('proj.confirmDiscard')))) return;
 
   const 选 = await 调接口('/api/project/pick', {});
   if (!选 || !选.path) return;
@@ -2903,12 +3016,18 @@ async function 真正打开(路径){
     const d = await r.json();
     if (!d.ok) throw new Error(d.错误 || 'unknown');
 
-    /* 服务端已把页面标记为待重建。刷新后：
+    /* 服务端已把页面标记为待重建。重载后：
        · 页面用工程的布局/主题构建
-       · __RESTORE__ 注入，初始化时还原画布 */
+       · __RESTORE__ 注入，初始化时还原画布
+
+       带 #enter 重载 —— 与导入流程一致，直接进编辑器。
+       否则会停在导入屏，用户还得再点一次「进入编辑器」
+       才会触发 初始化() → 还原画布，看起来像「打开工程没反应」。 */
     toast(译('proj.opened') + d.名称);
     清除脏();
-    setTimeout(() => location.reload(), 350);
+    setTimeout(() => {
+      location.href = location.pathname + '#enter';
+    }, 350);
   } catch (e) {
     toast(译('proj.openFailed') + e.message);
   }
@@ -3534,6 +3653,62 @@ function 启动自动保存(){
   });
 }
 
+/* 应用内询问框（替代原生 confirm）
+   ------------------------------------------------------------
+   原生 confirm() 会**阻塞渲染进程**：headless 测试里整个页面失联，
+   CDP 的 Runtime.evaluate 与 Debugger.pause 都无响应，
+   表现为「打开页面卡死」（实测踩到，排查了很久）。
+
+   返回值：Promise<boolean>，确定 = true。
+   用法：if (!(await 询问('要丢弃改动吗？'))) return; */
+function 询问(提示, 确定文案){
+  return new Promise(function (resolve) {
+    const 罩 = document.createElement('div');
+    罩.className = 'askMask';
+    const 框 = document.createElement('div');
+    框.className = 'askBox';
+
+    const 文 = document.createElement('div');
+    文.className = 'askText';
+    文.textContent = String(提示 == null ? '' : 提示);
+    框.appendChild(文);
+
+    const 行 = document.createElement('div');
+    行.className = 'askActions';
+
+    const 取消 = document.createElement('button');
+    取消.className = 'btn ghost';
+    取消.textContent = 译('common.cancel') || '取消';
+
+    const 确定 = document.createElement('button');
+    确定.className = 'btn primary';
+    确定.textContent = 确定文案 || (译('common.ok') || '确定');
+
+    function 收(值){
+      罩.remove();
+      document.removeEventListener('keydown', 键);
+      resolve(值);
+    }
+    function 键(e){
+      if (e.key === 'Escape') { e.preventDefault(); 收(false); }
+      else if (e.key === 'Enter') { e.preventDefault(); 收(true); }
+    }
+
+    取消.onclick = function (e) { e.stopPropagation(); 收(false); };
+    确定.onclick = function (e) { e.stopPropagation(); 收(true); };
+    /* 点遮罩空白处 = 取消（与原生 confirm 的「关掉即取消」一致） */
+    罩.onclick = function (e) { if (e.target === 罩) 收(false); };
+
+    行.appendChild(取消);
+    行.appendChild(确定);
+    框.appendChild(行);
+    罩.appendChild(框);
+    document.body.appendChild(罩);
+    document.addEventListener('keydown', 键);
+    确定.focus();
+  });
+}
+
 /* 启动时检查是否有可恢复内容 */
 async function 检查自动保存(){
   if (!服务模式) return;
@@ -3551,7 +3726,7 @@ async function 检查自动保存(){
       n: d.组件数 || 0,
       time: 时间 ? 时间.toLocaleString() : '',
     });
-    if (!confirm(提示)) { 清自动保存(); return; }
+    if (!(await 询问(提示))) { 清自动保存(); return; }
 
     /* 恢复：走与工程打开相同的还原路径 */
     const rr = await fetch('/api/autosave/restore', { method: 'POST',
@@ -3684,8 +3859,9 @@ async function 初始化标题栏(){
     更新最大化图标();
   };
   if ($('tbClose')) $('tbClose').onclick = async () => {
-    /* 有未保存改动时先确认 */
-    if (未保存 && !confirm(译('proj.confirmDiscard'))) return;
+    /* 有未保存改动时先确认。
+       用 询问() 而不是 confirm()：原生对话框阻塞渲染进程。 */
+    if (未保存 && !(await 询问(译('proj.confirmDiscard')))) return;
     await 窗口接口('close');
   };
 
