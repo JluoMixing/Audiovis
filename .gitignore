@@ -95,3 +95,7 @@ Audiovis_brand_assets_for_DSH/
 assets/icon/_*.png
 assets/icon/_old/
 
+
+# ---- 宣传素材工作目录（规划稿 / 脚本 / 渲染记录，非产品源码）----
+promo/
+
