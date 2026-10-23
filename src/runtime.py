@@ -153,9 +153,23 @@ def 用户数据目录():
     """
     if sys.platform == "win32":
         base = os.environ.get("LOCALAPPDATA") or os.path.expanduser("~")
-        d = pathlib.Path(base) / "FLVisualizer"
+        d = pathlib.Path(base) / "Audiovis"
+        旧 = pathlib.Path(base) / "FLVisualizer"
     else:
-        d = pathlib.Path.home() / ".local" / "share" / "flvisualizer"
+        d = pathlib.Path.home() / ".local" / "share" / "audiovis"
+        旧 = pathlib.Path.home() / ".local" / "share" / "flvisualizer"
+
+    # 旧版叫 FLVisualizer，改名后把旧目录整体搬过来 ——
+    # 里面有浏览器 profile（localStorage 可能存了界面状态），
+    # 不迁移等于让老用户丢掉这些。移动失败就继续用旧目录，不影响启动。
+    try:
+        if not d.exists() and 旧.exists():
+            d.parent.mkdir(parents=True, exist_ok=True)
+            旧.rename(d)
+    except Exception:
+        if 旧.exists():
+            d = 旧
+
     d.mkdir(parents=True, exist_ok=True)
     return d
 

@@ -7,8 +7,8 @@
 
 ## 设计
 
-位置：`%APPDATA%/FLVisualizer/settings.json`（Windows）
-      `~/.config/FLVisualizer/settings.json`（其它）
+位置：`%APPDATA%/Audiovis/settings.json`（Windows）
+      `~/.config/Audiovis/settings.json`（其它）
 
 为什么不放在项目目录：
   · 用户可能把程序装在只读位置
@@ -75,13 +75,38 @@ import sys
 
 # ---------------------------------------------------------------- 位置
 
+# 旧产品名 —— 用于把老用户的设置/工程迁到新目录。
+# 发布前叫 FLVisualizer，改名 Audiovis 后必须迁移，
+# 否则老用户打开会发现「设置没了、工程列表空了」。
+旧名 = "FLVisualizer"
+
+
+def _迁移目录(新: pathlib.Path, 旧: pathlib.Path):
+    """新目录不存在、旧目录存在 → 整体移动。返回新目录。
+
+    只在读取路径时调用，天然只迁移一次（新目录已存在就跳过）。
+    移动失败（占用/权限）时退回旧目录，保证功能可用 ——
+    宁可继续用旧目录，也不能让用户打不开设置。
+    """
+    try:
+        if not 新.exists() and 旧.exists():
+            新.parent.mkdir(parents=True, exist_ok=True)
+            旧.rename(新)
+    except Exception:
+        if 旧.exists():
+            return 旧
+    return 新
+
+
 def 配置目录():
     """用户级配置目录（跨平台）。"""
     if sys.platform == "win32":
         base = os.environ.get("APPDATA") or os.path.expanduser("~")
-        return pathlib.Path(base) / "FLVisualizer"
-    base = os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config")
-    return pathlib.Path(base) / "FLVisualizer"
+    else:
+        base = (os.environ.get("XDG_CONFIG_HOME")
+                or os.path.expanduser("~/.config"))
+    新 = pathlib.Path(base) / "Audiovis"
+    return _迁移目录(新, pathlib.Path(base) / 旧名)
 
 
 def 配置文件():
@@ -205,7 +230,8 @@ def 工程目录(设置=None):
     p = (s.get("路径") or {}).get("工程目录") or ""
     if p:
         return pathlib.Path(p)
-    return pathlib.Path.home() / "Documents" / "FLVisualizer" / "Projects"
+    新 = pathlib.Path.home() / "Documents" / "Audiovis" / "Projects"
+    return _迁移目录(新, pathlib.Path.home() / "Documents" / 旧名 / "Projects")
 
 
 def 导出目录(设置=None):
@@ -213,7 +239,8 @@ def 导出目录(设置=None):
     p = (s.get("路径") or {}).get("导出目录") or ""
     if p:
         return pathlib.Path(p)
-    return pathlib.Path.home() / "Documents" / "FLVisualizer" / "Exports"
+    新 = pathlib.Path.home() / "Documents" / "Audiovis" / "Exports"
+    return _迁移目录(新, pathlib.Path.home() / "Documents" / 旧名 / "Exports")
 
 
 def 缓存目录(设置=None):
@@ -223,8 +250,10 @@ def 缓存目录(设置=None):
         return pathlib.Path(p)
     if sys.platform == "win32":
         base = os.environ.get("LOCALAPPDATA") or os.path.expanduser("~")
-        return pathlib.Path(base) / "FLVisualizer" / "cache"
-    return pathlib.Path.home() / ".cache" / "flvisualizer"
+        新 = pathlib.Path(base) / "Audiovis" / "cache"
+        return _迁移目录(新, pathlib.Path(base) / 旧名 / "cache")
+    新 = pathlib.Path.home() / ".cache" / "audiovis"
+    return _迁移目录(新, pathlib.Path.home() / ".cache" / "flvisualizer")
 
 
 if __name__ == "__main__":
