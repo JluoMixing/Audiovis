@@ -6,6 +6,15 @@
 而是**真正读取你的工程结构**：Playlist 编排、Pattern、Clip、音符，
 配上真实音频分析，同步渲染成视频。
 
+## 宣传片
+
+[![Audiovis 宣传片](docs/video/poster.jpg)](docs/video/audiovis_promo_16x9.mp4)
+
+<video src="docs/video/audiovis_promo_16x9.mp4" poster="docs/video/poster.jpg" controls width="100%"></video>
+
+> 点封面或下方链接播放（78 秒，1080p60）。
+> 竖屏版：[`audiovis_promo_9x16.mp4`](docs/video/audiovis_promo_9x16.mp4)
+
 ---
 
 ## 和普通可视化有什么区别

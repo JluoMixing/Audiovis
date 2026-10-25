@@ -32,6 +32,7 @@
 | [`ADD_THEME.md`](ADD_THEME.md) | 加主题：4 步 | 扩展者 |
 | [`PACKAGING.md`](PACKAGING.md) | PyInstaller 配置与体积构成 | 要自己打包的人 |
 | [`VENDOR_VERSIONS.md`](VENDOR_VERSIONS.md) | 第三方依赖版本与许可证 | 合规 / 溯源 |
+| [`promo.md`](promo.md) | 宣传片：成片、结构、重建方法 | 要改宣传片的人 |
 
 ---
 

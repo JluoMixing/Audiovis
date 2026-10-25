@@ -55,6 +55,11 @@ renders/
 *.mkv
 frame_cache/
 
+# ---- 宣传片最终稿（唯一入库的视频，见 docs/promo.md）----
+# 例外必须写在 *.mp4 之后，否则不生效。
+!docs/video/
+!docs/video/*.mp4
+
 # ---- 编辑器 / 系统 ----
 .vscode/
 .idea/
