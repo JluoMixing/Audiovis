@@ -30,7 +30,7 @@ import urllib.request
 根 = pathlib.Path(__file__).resolve().parent.parent
 # 用命名参数而不是位置参数：跑批工具靠「有没有 sys.argv[1]」
 # 判断该不该传端口，位置参数会被误当成端口。
-EXE = 根 / "dist" / "FLVisualizer" / "FLVisualizer.exe"
+EXE = 根 / "dist" / "Audiovis" / "Audiovis.exe"
 for _a in sys.argv[1:]:
     if _a.startswith("--exe="):
         EXE = pathlib.Path(_a.split("=", 1)[1])
@@ -97,7 +97,7 @@ def main():
 
     # 先杀掉可能残留的实例
     subprocess.run(["powershell", "-NoProfile", "-Command",
-                    "Get-Process FLVisualizer -ErrorAction SilentlyContinue "
+                    "Get-Process Audiovis -ErrorAction SilentlyContinue "
                     "| Stop-Process -Force"], capture_output=True)
     time.sleep(2)
 

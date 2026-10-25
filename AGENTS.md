@@ -15,7 +15,7 @@
 而是**理解工程结构**：读取 FLP 的 Playlist / Pattern / Clip / Note，
 与音频同步渲染成视频。
 
-**当前状态**：全部阶段完成，已打包 v1（`dist/FLVisualizer-win64.zip`，97.6 MB）。
+**当前状态**：全部阶段完成，已打包 v1（`dist/Audiovis-v1.0.0-win64.zip`，97.6 MB）。
 
 ---
 
@@ -59,7 +59,7 @@ python tools\run_tests.py --server 11000   # 指定服务端口给需要服务�
 ### 打包
 
 ```powershell
-python -m PyInstaller packaging\FLVisualizer.spec --noconfirm --clean `
+python -m PyInstaller packaging\Audiovis.spec --noconfirm --clean `
     --distpath dist --workpath out\pybuild
 python packaging\make_zip.py               # 打 zip 并校验
 ```
@@ -218,7 +218,7 @@ SHAPES    patternShapes
 ### 数量
 
 正式测试在 `tools/test_*.py` 与 `tools/test_*.mjs`（约 50 个，随时会增）。
-`tools/_archive/` 里有 151 个临时诊断脚本（历史，不参与回归）。
+（`tools/_archive/` 的临时诊断脚本已从仓库移除，仍在 git 历史里。）
 
 **查当前数量**：
 

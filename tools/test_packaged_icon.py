@@ -16,7 +16,7 @@ import time
 import urllib.request
 
 根 = pathlib.Path(r"D:\FL_VISUAL_TEST")
-exe = 根 / "dist" / "FLVisualizer" / "FLVisualizer.exe"
+exe = 根 / "dist" / "Audiovis" / "Audiovis.exe"
 
 通过 = 0
 失败 = 0
@@ -110,7 +110,7 @@ print()
 print("【2】启动 exe")
 subprocess.run(["powershell", "-NoProfile", "-Command",
                 "Get-CimInstance Win32_Process -Filter "
-                "\"Name='FLVisualizer.exe'\" | "
+                "\"Name='Audiovis.exe'\" | "
                 "ForEach-Object { Stop-Process -Id $_.ProcessId -Force "
                 "-ErrorAction SilentlyContinue }"],
                capture_output=True, timeout=60)
@@ -118,7 +118,7 @@ time.sleep(2)
 
 端口 = 11700
 p = subprocess.Popen([str(exe), "--port", str(端口)],
-                     cwd=str(根 / "dist" / "FLVisualizer"),
+                     cwd=str(根 / "dist" / "Audiovis"),
                      stdout=subprocess.DEVNULL,
                      stderr=subprocess.DEVNULL)
 
@@ -210,7 +210,7 @@ if 会话:
     ts = json.loads((根 / "preview" / "templates.json")
                     .read_text(encoding="utf-8"))
     组件 = [x for x in ts if x.get("name") == "基础"][0]["land"]
-    输出 = 根 / "dist" / "FLVisualizer" / "out" / "_icon_test.mp4"
+    输出 = 根 / "dist" / "Audiovis" / "out" / "_icon_test.mp4"
     输出.parent.mkdir(parents=True, exist_ok=True)
     if 输出.exists():
         输出.unlink()
@@ -249,7 +249,7 @@ print()
 # 清理
 subprocess.run(["powershell", "-NoProfile", "-Command",
                 "Get-CimInstance Win32_Process -Filter "
-                "\"Name='FLVisualizer.exe'\" | "
+                "\"Name='Audiovis.exe'\" | "
                 "ForEach-Object { Stop-Process -Id $_.ProcessId -Force "
                 "-ErrorAction SilentlyContinue }"],
                capture_output=True, timeout=60)

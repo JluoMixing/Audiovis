@@ -91,13 +91,19 @@ Audiovis 读的是**工程本身**：
 
 ## 安装
 
+[![最新版本](https://img.shields.io/github/v/release/JluoMixing/Audiovis?style=flat-square&label=release)](https://github.com/JluoMixing/Audiovis/releases/latest)
+[![下载](https://img.shields.io/github/downloads/JluoMixing/Audiovis/total?style=flat-square&label=downloads)](https://github.com/JluoMixing/Audiovis/releases/latest)
+[![许可](https://img.shields.io/github/license/JluoMixing/Audiovis?style=flat-square)](LICENSE)
+[![平台](https://img.shields.io/badge/platform-Windows%2010%2F11%20x64-0078D4?style=flat-square)](https://github.com/JluoMixing/Audiovis/releases/latest)
+
 ### 方式一：下载即用（推荐）
 
-1. 下载 `FLVisualizer-win64.zip`（约 100 MB）
-2. 解压到任意目录
-3. 双击 `FLVisualizer.exe`
+**[⬇ 下载最新版](https://github.com/JluoMixing/Audiovis/releases/latest)**
 
-**不需要安装 Python、Node.js 或 ffmpeg** —— 全部已打包。
+1. 解压到任意目录
+2. 双击 `Audiovis.exe`
+
+**不需要安装 Python、Node.js 或 ffmpeg** —— 全部已打包（约 100 MB）。
 
 **系统要求**：Windows 10/11 x64，WebView2 运行时（Win11 自带；Win10 通常已随 Edge 安装）。
 

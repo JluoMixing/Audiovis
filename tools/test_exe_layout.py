@@ -24,7 +24,7 @@ import time
 import urllib.request
 
 根 = pathlib.Path(__file__).resolve().parent.parent
-EXE = 根 / "dist" / "FLVisualizer" / "FLVisualizer.exe"
+EXE = 根 / "dist" / "Audiovis" / "Audiovis.exe"
 
 工程目录 = pathlib.Path(r"E:\FL_Project\amapiano")
 FLP = 工程目录 / "amapiano.flp"
@@ -77,7 +77,7 @@ def main():
     print()
 
     subprocess.run(["powershell", "-NoProfile", "-Command",
-                    "Get-Process FLVisualizer -ErrorAction SilentlyContinue "
+                    "Get-Process Audiovis -ErrorAction SilentlyContinue "
                     "| Stop-Process -Force"], capture_output=True)
     time.sleep(2)
 

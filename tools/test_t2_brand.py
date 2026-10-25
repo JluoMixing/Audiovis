@@ -61,16 +61,25 @@ for m in re.finditer(r"FL\s*Visualizer", html, re.I):
      文本命中[:3] if 文本命中 else "")
 print()
 
-# ---- 2) 不该改的保持不变 ----
-print("【2】不可见处保持不动")
-断言("配置目录仍是 FLVisualizer",
-     "FLVisualizer" in (根 / "src" / "settings.py").read_text(encoding="utf-8"))
-断言("exe 名仍是 FLVisualizer.exe",
-     "FLVisualizer.exe" in (根 / "packaging" / "make_zip.py")
-     .read_text(encoding="utf-8"))
-断言("zip 内目录仍是 FLVisualizer",
-     "FLVisualizer/使用说明.txt" in (根 / "packaging" / "make_zip.py")
-     .read_text(encoding="utf-8"))
+# ---- 2) 改名已全面完成 ----
+print("【2】旧名已清除（产品名统一为 Audiovis）")
+# 注：本段在「只改显示文案」阶段是反过来的（断言内部名仍是 FLVisualizer）。
+# 现在需求是全部改名，故断言改为「不能再出现旧名」。
+# 例外：src/settings.py 与 src/runtime.py 里的 旧名 是数据迁移逻辑，必须保留。
+设置源码 = (根 / "src" / "settings.py").read_text(encoding="utf-8")
+断言("settings.py 保留迁移用的旧名常量",
+     '旧名 = "FLVisualizer"' in 设置源码)
+
+打包源码 = (根 / "packaging" / "make_zip.py").read_text(encoding="utf-8")
+断言("exe 名已改为 Audiovis.exe",
+     "Audiovis.exe" in 打包源码 and "FLVisualizer.exe" not in 打包源码)
+断言("zip 内目录已改为 Audiovis/",
+     "Audiovis/使用说明.txt" in 打包源码 and
+     "FLVisualizer/使用说明.txt" not in 打包源码)
+
+规格源码 = (根 / "packaging" / "Audiovis.spec").read_text(encoding="utf-8")
+断言("spec 里 name=Audiovis",
+     'name="Audiovis"' in 规格源码 and 'name="FLVisualizer"' not in 规格源码)
 print()
 
 # ---- 3) run.py 启动横幅 ----

@@ -43,7 +43,7 @@ print("【1】文档里提到的文件都存在")
     "src/core/paint.js", "src/core/registry.js", "src/core/surfaces.js",
     "preview/themes/artdirections.json", "preview/gui/js/app.js",
     "preview/build_gui.py", "src/build/build.py",
-    "src/bloom/dispatch.js", "packaging/FLVisualizer.spec",
+    "src/bloom/dispatch.js", "packaging/Audiovis.spec",
     "packaging/make_zip.py", "tools/run_tests.py",
     "tools/cleanup_test_browsers.py", "tools/test_parity.mjs",
     "tools/verify_docs_final.py", "docs/INDEX.md",
@@ -53,8 +53,8 @@ for p in 路径:
     断言(p, (根 / p).exists())
 
 # dist 产物
-断言("dist/FLVisualizer-win64.zip",
-     (根 / "dist" / "FLVisualizer-win64.zip").is_file())
+断言("dist/Audiovis-v1.0.0-win64.zip",
+     (根 / "dist" / "Audiovis-v1.0.0-win64.zip").is_file())
 print()
 
 # ---- 2) 全局名 ----
@@ -96,8 +96,10 @@ bloom = len(list((根 / "src" / "bloom" / "themes").glob("*.js")))
 断言("AGENTS.md 不写死测试数量",
      "48 个正式测试" not in a and "56 个正式测试" not in a)
 
-归档 = len(list((根 / "tools" / "_archive").glob("*")))
-断言("归档 151 个（文档说 151）", 归档 == 151, 归档)
+# tools/_archive/ 已从仓库移除（151 个临时诊断脚本，属开发过程）。
+# 文档里也不再提它，故这里断言「不存在」而不是「有 151 个」。
+断言("tools/_archive/ 不在仓库里",
+     not (根 / "tools" / "_archive").exists())
 print()
 
 # ---- 4) 命令 ----

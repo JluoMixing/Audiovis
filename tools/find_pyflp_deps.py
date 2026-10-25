@@ -62,7 +62,7 @@ for m in sorted(模块):
 print("需要打包：", 已装)
 
 # 写进 spec
-p = 根 / "packaging" / "FLVisualizer.spec"
+p = 根 / "packaging" / "Audiovis.spec"
 s = p.read_text(encoding="utf-8")
 
 旧 = '''    "build_gui",               # 动态导入，静态分析看不到'''

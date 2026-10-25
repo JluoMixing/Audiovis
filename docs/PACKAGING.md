@@ -4,8 +4,8 @@
 
 | 文件 | 说明 | 大小 |
 |---|---|---|
-| `dist/FLVisualizer/` | onedir 产物（957 个文件） | 266.8 MB |
-| `dist/FLVisualizer-win64.zip` | 分发用压缩包 | **100.4 MB** |
+| `dist/Audiovis/` | onedir 产物（957 个文件） | 266.8 MB |
+| `dist/Audiovis-v1.0.0-win64.zip` | 分发用压缩包 | **100.4 MB** |
 
 zip 里除程序本体外还带一份 `使用说明.txt`（启动方式、系统要求、
 文件位置、自查方法、许可）。
@@ -17,7 +17,7 @@ zip 里除程序本体外还带一份 `使用说明.txt`（启动方式、系统
 python preview/build_gui.py
 
 # 2) 打包
-python -m PyInstaller packaging/FLVisualizer.spec --noconfirm --clean
+python -m PyInstaller packaging/Audiovis.spec --noconfirm --clean
 
 # 3) 打 zip
 python packaging/make_zip.py
@@ -27,14 +27,14 @@ python packaging/make_zip.py
 `PermissionError: 拒绝访问`）：
 
 ```powershell
-Get-Process FLVisualizer,msedge -ErrorAction SilentlyContinue | Stop-Process -Force
+Get-Process Audiovis,msedge -ErrorAction SilentlyContinue | Stop-Process -Force
 ```
 
 ## zip 里包含什么
 
 ```
-FLVisualizer/
-  FLVisualizer.exe            入口（3–6 MB）
+Audiovis/
+  Audiovis.exe            入口（3–6 MB）
   使用说明.txt
   bundles/node.exe            视频渲染（76.8 MB）
   imageio_ffmpeg/binaries/    ffmpeg（83.6 MB）
@@ -134,7 +134,7 @@ ImportError: Error importing numpy: you should not try to import numpy from
 装到 `Program Files` 后那里只读；而且会弄脏 `dist/`，
 实测导致下次构建 `PermissionError: 拒绝访问`。
 
-修：改用 `%LOCALAPPDATA%/FLVisualizer/appdata`。
+修：改用 `%LOCALAPPDATA%/Audiovis/appdata`。
 
 ### 8. 自检在无控制台下看不见
 
@@ -142,7 +142,7 @@ ImportError: Error importing numpy: you should not try to import numpy from
 （不抛异常），所以"用 try/except print 判断有没有控制台"永远为真。
 
 修：`--selftest` **总是**把报告写到
-`%LOCALAPPDATA%/FLVisualizer/selftest.txt`，
+`%LOCALAPPDATA%/Audiovis/selftest.txt`，
 只在 `sys.stdout is None` 时自动用记事本打开。
 
 ## 验证方式
@@ -152,11 +152,11 @@ ImportError: Error importing numpy: you should not try to import numpy from
 ### 1. 成品自检
 
 ```
-FLVisualizer.exe --selftest
+Audiovis.exe --selftest
 ```
 
 检查依赖模块、项目模块、外部可执行（node/ffmpeg/浏览器）、资源文件。
-结果写 `%LOCALAPPDATA%/FLVisualizer/selftest.txt`。
+结果写 `%LOCALAPPDATA%/Audiovis/selftest.txt`。
 
 ### 2. 端到端（`tools/test_exe_e2e.py`，14 项）
 

@@ -93,29 +93,30 @@ print()
 
 # ---- 7) packaging ----
 print("【7】packaging")
-for f in ("FLVisualizer.spec", "make_zip.py"):
+for f in ("Audiovis.spec", "make_zip.py"):
     断言("packaging/%s 存在" % f, (根 / "packaging" / f).is_file())
 print()
 
-# ---- 8) 文档提到的 docs 文件都存在 ----
-print("【8】docs 清单（STRUCTURE 里列的）")
+# ---- 8) docs 清单 ----
+print("【8】docs 清单")
+# 开源版只保留「成品需要」的文档。
+# 阶段报告（GUI_DONE / PERF_AUDIT / GPU_AND_HARDWARE）与
+# _history/（GUI_PLAN / PHASE_A_REPORT / DESIGN_DIRECTIONS）
+# 属于开发过程记录，已从仓库移除 —— 它们仍在本机 git 历史里。
 文档docs = ["INDEX.md", "ROADMAP.md", "STRUCTURE.md", "ADD_COMPONENT.md",
-            "ADD_THEME.md", "GUI_DONE.md",
-            "PACKAGING.md", "PERF_AUDIT.md", "GPU_AND_HARDWARE.md",
-            "VENDOR_VERSIONS.md"]
+            "ADD_THEME.md", "PACKAGING.md", "VENDOR_VERSIONS.md",
+            "promo.md"]
 实际docs = [f.name for f in (根 / "docs").glob("*.md")]
-断言("文档列的 docs 都存在",
+断言("成品文档都存在",
      all(d in 实际docs for d in 文档docs),
      [d for d in 文档docs if d not in 实际docs])
 
-# 历史文档应已移到 _history/
-历史 = ["GUI_PLAN.md", "PHASE_A_REPORT.md", "DESIGN_DIRECTIONS.md"]
-断言("历史文档已移到 docs/_history/",
-     all((根 / "docs" / "_history" / h).is_file() for h in 历史),
-     [h for h in 历史 if not (根 / "docs" / "_history" / h).is_file()])
-断言("docs/ 根目录不再有历史文档",
-     not any(h in 实际docs for h in 历史),
-     [h for h in 历史 if h in 实际docs])
+已移除 = ["GUI_DONE.md", "PERF_AUDIT.md", "GPU_AND_HARDWARE.md"]
+断言("开发过程文档不在仓库里",
+     not any(d in 实际docs for d in 已移除),
+     [d for d in 已移除 if d in 实际docs])
+断言("docs/_history/ 不在仓库里",
+     not (根 / "docs" / "_history").exists())
 print()
 
 # ---- 9) 文档里不应再提过时内容 ----
@@ -132,10 +133,10 @@ print()
 
 # ---- 10) 打包产物 ----
 print("【10】打包产物")
-断言("dist/FLVisualizer/FLVisualizer.exe 存在",
-     (根 / "dist" / "FLVisualizer" / "FLVisualizer.exe").is_file())
-断言("dist/FLVisualizer-win64.zip 存在",
-     (根 / "dist" / "FLVisualizer-win64.zip").is_file())
+断言("dist/Audiovis/Audiovis.exe 存在",
+     (根 / "dist" / "Audiovis" / "Audiovis.exe").is_file())
+断言("dist/Audiovis-v1.0.0-win64.zip 存在",
+     (根 / "dist" / "Audiovis-v1.0.0-win64.zip").is_file())
 print()
 
 print("=" * 70)

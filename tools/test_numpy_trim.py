@@ -32,7 +32,7 @@ import time
 import urllib.request
 
 根 = pathlib.Path(r"D:\FL_VISUAL_TEST")
-dist = 根 / "dist" / "FLVisualizer"
+dist = 根 / "dist" / "Audiovis"
 np_libs = dist / "numpy.libs"
 备份 = dist / "numpy.libs.bak"
 
@@ -113,14 +113,14 @@ else:
     Get = subprocess.run
     subprocess.run(["powershell", "-NoProfile", "-Command",
                     "Get-CimInstance Win32_Process -Filter "
-                    "\"Name='FLVisualizer.exe'\" | "
+                    "\"Name='Audiovis.exe'\" | "
                     "ForEach-Object { Stop-Process -Id $_.ProcessId -Force "
                     "-ErrorAction SilentlyContinue }"],
                    capture_output=True, timeout=60)
     time.sleep(2)
 
     端口 = 11200
-    p = subprocess.Popen([str(dist / "FLVisualizer.exe"),
+    p = subprocess.Popen([str(dist / "Audiovis.exe"),
                           "--port", str(端口)],
                          cwd=str(dist),
                          stdout=subprocess.DEVNULL,
@@ -193,7 +193,7 @@ else:
     finally:
         subprocess.run(["powershell", "-NoProfile", "-Command",
                         "Get-CimInstance Win32_Process -Filter "
-                        "\"Name='FLVisualizer.exe'\" | "
+                        "\"Name='Audiovis.exe'\" | "
                         "ForEach-Object { Stop-Process -Id $_.ProcessId "
                         "-Force -ErrorAction SilentlyContinue }"],
                        capture_output=True, timeout=60)
@@ -206,7 +206,7 @@ if 成功1 and 成功2:
     print("建议：保留删除（省 36.4 MB）。备份在 numpy.libs.bak，确认后可删。")
     print()
     print("若确认无误，执行：")
-    print("  Remove-Item dist\\FLVisualizer\\numpy.libs.bak -Recurse -Force")
+    print("  Remove-Item dist\\Audiovis\\numpy.libs.bak -Recurse -Force")
     print("并在 spec 里加排除规则，避免下次打包又带进来。")
 else:
     print("结论：**不能删**。")

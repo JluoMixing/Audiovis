@@ -17,7 +17,7 @@ import pathlib
 import struct
 
 根 = pathlib.Path(r"D:\FL_VISUAL_TEST")
-exe = 根 / "dist" / "FLVisualizer" / "FLVisualizer.exe"
+exe = 根 / "dist" / "Audiovis" / "Audiovis.exe"
 ico = 根 / "assets" / "icon" / "audiovis.ico"
 
 print("=" * 70)

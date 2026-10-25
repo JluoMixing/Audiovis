@@ -118,7 +118,7 @@ data/
 
 ```
 packaging/
-├── FLVisualizer.spec      PyInstaller 配置（onedir）
+├── Audiovis.spec      PyInstaller 配置（onedir）
 ├── make_zip.py            打 zip 并校验
 └── 使用说明.txt           随包分发
 ```
