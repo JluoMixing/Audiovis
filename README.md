@@ -8,12 +8,13 @@
 
 ## 宣传片
 
-[![Audiovis 宣传片](docs/video/poster.jpg)](docs/video/audiovis_promo_16x9.mp4)
+[![Audiovis 宣传片 —— 点击播放](docs/video/poster.jpg)](docs/video/audiovis_promo_16x9.mp4)
 
-<video src="docs/video/audiovis_promo_16x9.mp4" poster="docs/video/poster.jpg" controls width="100%"></video>
+**▶ 点封面播放**（78 秒 · 1080p60）｜ [竖屏版](docs/video/audiovis_promo_9x16.mp4)
 
-> 点封面或下方链接播放（78 秒，1080p60）。
-> 竖屏版：[`audiovis_promo_9x16.mp4`](docs/video/audiovis_promo_9x16.mp4)
+> GitHub 的 README 不支持内联视频播放（仓库里的 mp4 以
+> `application/octet-stream` 返回，浏览器会当成下载），
+> 所以这里用封面图 + 链接。点开就是 GitHub 自带的播放器。
 
 ---
 
